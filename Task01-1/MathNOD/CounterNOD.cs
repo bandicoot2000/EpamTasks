@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,51 +9,75 @@ namespace MathNOD
 {
     public class CounterNOD
     {
-        private int numberFirst;
+        private uint numberFirst;
 
-        public int NumberFirst 
+        public uint NumberFirst 
         {
             get { return numberFirst; } 
-            set { numberFirst = value > 0 ? value : 1; } 
+            set { numberFirst = value != 0 ? value : 
+                    throw new Exception("Zero exception, number must be greater than zero"); } 
         }
 
-        private int numberSecond;
+        private uint numberSecond;
 
-        public int NumberSecond 
+        public uint NumberSecond 
         {
             get { return numberSecond; }
-            set { numberSecond = value > 0 ? value : 1; }
+            set { numberSecond = value != 0 ? value : 
+                    throw new Exception("Zero exception, number must be greater than zero"); }
         }
 
-        public CounterNOD(int numberFirst, int numberSecond)
+
+        public CounterNOD(uint numberFirst, uint numberSecond)
         {
             NumberFirst = numberFirst;
             NumberSecond = numberSecond;
         }
 
-        public int GetNOD()
+        public uint GetNOD()
         {
             return NOD(numberFirst, numberSecond);
         }
 
-        public int GetNOD(int numberThird)
+        public uint GetNOD(uint numberThird)
         {
             return NOD(GetNOD(), numberThird);
         }
 
-        public int GetNOD(int numberThird, int numberFourth)
+        public uint GetNOD(uint numberThird, uint numberFourth)
         {
             return NOD(GetNOD(numberThird), numberFourth);
         }
 
-        public int GetNOD(int numberThird, int numberFourth, int numberFifth)
+        public uint GetNOD(uint numberThird, uint numberFourth, uint numberFifth)
         {
             return NOD(GetNOD(numberThird, numberFourth), numberFifth);
         }
 
-        private int NOD(int numberFirst, int numberSecond)
+        public uint GetNOD(out long time)
         {
-            int numberTemp = 0;
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            long startTime = stopwatch.ElapsedMilliseconds;
+            uint answer = NOD(numberFirst, numberSecond);
+            time = stopwatch.ElapsedMilliseconds - startTime;
+            return answer;
+        }
+
+
+
+        public uint GetNODStein(out long time)
+        {
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            long startTime = stopwatch.ElapsedMilliseconds;
+            uint answer = NODStein(numberFirst, numberSecond);
+            time = stopwatch.ElapsedMilliseconds - startTime;
+            return answer;
+        }
+
+
+        private uint NOD(uint numberFirst, uint numberSecond)
+        {
+            uint numberTemp = 0;
 
             while (numberSecond != 0)
             {
@@ -62,6 +87,32 @@ namespace MathNOD
             }
 
             return numberFirst;
+        }
+
+        private uint NODStein(uint numberFirst, uint numberSecond)
+        {
+            if (numberFirst == numberSecond)
+                return numberFirst;
+
+            if (numberFirst == 0)
+                return numberSecond;
+
+            if (numberSecond == 0)
+                return numberFirst;
+
+            if (1 == (~numberFirst & 1)) 
+                if (1 == (numberSecond & 1))
+                    return NODStein(numberFirst >> 1, numberSecond);
+                else 
+                    return NODStein(numberFirst >> 1, numberSecond >> 1) << 1;
+
+            if (1 == (~numberSecond & 1)) 
+                return NODStein(numberFirst, numberSecond >> 1);
+
+            if (numberFirst > numberSecond)
+                return NODStein((numberFirst - numberSecond) >> 1, numberSecond);
+
+            return NODStein((numberSecond - numberFirst) >> 1, numberFirst);
         }
     }
 }

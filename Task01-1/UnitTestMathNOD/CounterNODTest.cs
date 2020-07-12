@@ -9,7 +9,7 @@ namespace UnitTestMathNOD
     public class CounterNODTest
     {
 
-        private static int GCD(int numberFirst, int numberSecond)
+        private static uint GCD(uint numberFirst, uint numberSecond)
         {
             if(numberFirst == 0)
             {
@@ -17,8 +17,8 @@ namespace UnitTestMathNOD
             }
             else
             {
-                int min = Math.Min(numberFirst, numberSecond);
-                int max = Math.Max(numberFirst, numberSecond);
+                uint min = Math.Min(numberFirst, numberSecond);
+                uint max = Math.Max(numberFirst, numberSecond);
                 return GCD(max % min, min);
             }
         }
@@ -28,9 +28,9 @@ namespace UnitTestMathNOD
         public void GetNOD2NumberTest()
         {
             CounterNOD counterNOD = new CounterNOD(1, 1);
-            for (int numberFirst = 1; numberFirst < 1000; numberFirst++)
+            for (uint numberFirst = 1; numberFirst < 1000; numberFirst++)
             {
-                for (int numberSecond = 1; numberSecond < 1000; numberSecond++)
+                for (uint numberSecond = 1; numberSecond < 1000; numberSecond++)
                 {
                     counterNOD.NumberFirst = numberFirst;
                     counterNOD.NumberSecond = numberSecond;
@@ -43,11 +43,11 @@ namespace UnitTestMathNOD
         public void GetNOD3NumberTest()
         {
             CounterNOD counterNOD = new CounterNOD(1, 1);
-            for (int numberFirst = 1; numberFirst < 1000; numberFirst++)
+            for (uint numberFirst = 1; numberFirst < 100; numberFirst++)
             {
-                for (int numberSecond = 1; numberSecond < 1000; numberSecond++)
+                for (uint numberSecond = 1; numberSecond < 100; numberSecond++)
                 {
-                    for (int numberThird = 1; numberThird < 1000; numberThird++)
+                    for (uint numberThird = 1; numberThird < 100; numberThird++)
                     {
                         counterNOD.NumberFirst = numberFirst;
                         counterNOD.NumberSecond = numberSecond;
@@ -61,13 +61,13 @@ namespace UnitTestMathNOD
         public void GetNOD4NumberTest()
         {
             CounterNOD counterNOD = new CounterNOD(1, 1);
-            for (int numberFirst = 1; numberFirst < 100; numberFirst++)
+            for (uint numberFirst = 1; numberFirst < 90; numberFirst++)
             {
-                for (int numberSecond = 1; numberSecond < 100; numberSecond++)
+                for (uint numberSecond = 1; numberSecond < 90; numberSecond++)
                 {
-                    for (int numberThird = 1; numberThird < 100; numberThird++)
+                    for (uint numberThird = 1; numberThird < 90; numberThird++)
                     {
-                        for (int numberFourth = 1; numberFourth < 100; numberFourth++)
+                        for (uint numberFourth = 1; numberFourth < 90; numberFourth++)
                         {
                             counterNOD.NumberFirst = numberFirst;
                             counterNOD.NumberSecond = numberSecond;
@@ -83,15 +83,15 @@ namespace UnitTestMathNOD
         public void GetNOD5NumberTest()
         {
             CounterNOD counterNOD = new CounterNOD(1, 1);
-            for (int numberFirst = 1; numberFirst < 50; numberFirst++)
+            for (uint numberFirst = 1; numberFirst < 40; numberFirst++)
             {
-                for (int numberSecond = 1; numberSecond < 50; numberSecond++)
+                for (uint numberSecond = 1; numberSecond < 40; numberSecond++)
                 {
-                    for (int numberThird = 1; numberThird < 50; numberThird++)
+                    for (uint numberThird = 1; numberThird < 40; numberThird++)
                     {
-                        for (int numberFourth = 1; numberFourth < 50; numberFourth++)
+                        for (uint numberFourth = 1; numberFourth < 40; numberFourth++)
                         {
-                            for (int numberFifth = 1; numberFifth < 50; numberFifth++)
+                            for (uint numberFifth = 1; numberFifth < 40; numberFifth++)
                             {
                                 counterNOD.NumberFirst = numberFirst;
                                 counterNOD.NumberSecond = numberSecond;
@@ -103,5 +103,39 @@ namespace UnitTestMathNOD
                 }
             }
         }
+
+
+        [TestMethod]
+        public void GetNOD2NumberWithTimerTest()
+        {
+            CounterNOD counterNOD = new CounterNOD(1, 1);
+            for (uint numberFirst = 1; numberFirst < 1000; numberFirst++)
+            {
+                for (uint numberSecond = 1; numberSecond < 1000; numberSecond++)
+                {
+                    counterNOD.NumberFirst = numberFirst;
+                    counterNOD.NumberSecond = numberSecond;
+                    long time;
+                    Assert.AreEqual(GCD(numberFirst, numberSecond), counterNOD.GetNOD(out time));
+                }
+            }
+        }
+
+        [TestMethod]
+        public void GetNODSteinTest()
+        {
+            CounterNOD counterNOD = new CounterNOD(1, 1);
+            for (uint numberFirst = 1; numberFirst < 1000; numberFirst++)
+            {
+                for (uint numberSecond = 1; numberSecond < 1000; numberSecond++)
+                {
+                    counterNOD.NumberFirst = numberFirst;
+                    counterNOD.NumberSecond = numberSecond;
+                    long time;
+                    Assert.AreEqual(GCD(numberFirst, numberSecond), counterNOD.GetNODStein(out time));
+                }
+            }
+        }
+
     }
 }
