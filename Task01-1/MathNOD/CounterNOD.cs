@@ -32,11 +32,29 @@ namespace MathNOD
 
         public int GetNOD()
         {
-            int numberFirst = NumberFirst;
-            int numberSecond = NumberSecond;
+            return NOD(numberFirst, numberSecond);
+        }
+
+        public int GetNOD(int numberThird)
+        {
+            return NOD(GetNOD(), numberThird);
+        }
+
+        public int GetNOD(int numberThird, int numberFourth)
+        {
+            return NOD(GetNOD(numberThird), numberFourth);
+        }
+
+        public int GetNOD(int numberThird, int numberFourth, int numberFifth)
+        {
+            return NOD(GetNOD(numberThird, numberFourth), numberFifth);
+        }
+
+        private int NOD(int numberFirst, int numberSecond)
+        {
             int numberTemp = 0;
 
-            while(numberSecond != 0)
+            while (numberSecond != 0)
             {
                 numberTemp = numberSecond;
                 numberSecond = numberFirst % numberSecond;
@@ -45,6 +63,5 @@ namespace MathNOD
 
             return numberFirst;
         }
-
     }
 }
