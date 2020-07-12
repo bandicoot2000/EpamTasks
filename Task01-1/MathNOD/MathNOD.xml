@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MathNOD</name>
+    </assembly>
+    <members>
+        <member name="T:MathNOD.CounterNOD">
+            <summary>
+            Class allowing to calculate NOD.
+            </summary>
+        </member>
+        <member name="P:MathNOD.CounterNOD.NumberFirst">
+            <summary>
+            First number to calculate the NOD.
+            </summary>
+        </member>
+        <member name="P:MathNOD.CounterNOD.NumberSecond">
+            <summary>
+            Second number to calculate the NOD.
+            </summary>
+        </member>
+        <member name="M:MathNOD.CounterNOD.#ctor(System.UInt32,System.UInt32)">
+            <summary>
+            Class constructor CounterNOD.
+            </summary>
+            <param name="numberFirst">First number to calculate the NOD.</param>
+            <param name="numberSecond">Second number to calculate the NOD.</param>
+        </member>
+        <member name="M:MathNOD.CounterNOD.GetNOD">
+            <summary>
+            Calculate NOD of two numbers Euclid's algorithm.
+            </summary>
+            <returns>NOD of two numbers.</returns>
+        </member>
+        <member name="M:MathNOD.CounterNOD.GetNOD(System.UInt32)">
+            <summary>
+            Calculate NOD of three numbers Euclid's algorithm.
+            </summary>
+            <param name="numberThird">Third number to calculate the NOD.</param>
+            <returns>NOD of three numbers.</returns>
+        </member>
+        <member name="M:MathNOD.CounterNOD.GetNOD(System.UInt32,System.UInt32)">
+            <summary>
+            Calculate NOD of four numbers Euclid's algorithm.
+            </summary>
+            <param name="numberThird">Third number to calculate the NOD.</param>
+            <param name="numberFourth">Fourth number to calculate the NOD.</param>
+            <returns>NOD of four numbers.</returns>
+        </member>
+        <member name="M:MathNOD.CounterNOD.GetNOD(System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Calculate NOD of five numbers Euclid's algorithm.
+            </summary>
+            <param name="numberThird">Third number to calculate the NOD.</param>
+            <param name="numberFourth">Fourth number to calculate the NOD.</param>
+            <param name="numberFifth">Fifth number to calculate the NOD.</param>
+            <returns>NOD of five numbers.</returns>
+        </member>
+        <member name="M:MathNOD.CounterNOD.GetNOD(System.Int64@)">
+            <summary>
+            Calculate NOD of two numbers Euclid's algorithm.
+            </summary>
+            <param name="time">NOD calculation time.</param>
+            <returns>NOD of two numbers.</returns>
+        </member>
+        <member name="M:MathNOD.CounterNOD.GetNODStein(System.Int64@)">
+            <summary>
+            Calculate NOD of two numbers Stein's algorithm.
+            </summary>
+            <param name="time">NOD calculation time.</param>
+            <returns>NOD of two numbers.</returns>
+        </member>
+        <member name="M:MathNOD.CounterNOD.GetTimeData(System.UInt32,System.UInt32)">
+            <summary>
+            Collects data on the time of calculation of NOD.
+            </summary>
+            <param name="numberFirst">First number to calculate the NOD.</param>
+            <param name="nemberSecondMax">The largest second number to calculate the NOD.</param>
+            <returns>NOD calculation time data.</returns>
+        </member>
+    </members>
+</doc>
