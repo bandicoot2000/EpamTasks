@@ -4,8 +4,16 @@ using System.Collections.Generic;
 
 namespace Geometry2D
 {
+    /// <summary>
+    /// FigureLoader work with file and text. Parse it to figure.
+    /// </summary>
     public static class FigureLoader
     {
+        /// <summary>
+        /// Load all figures from file.
+        /// </summary>
+        /// <param name="file">File.</param>
+        /// <returns>Array of figures.</returns>
         public static Figure[] LoadFigures(string file)
         {
             if (!File.Exists(file)) throw new Exception("File not exist");
@@ -25,6 +33,11 @@ namespace Geometry2D
             return figures.ToArray();
         }
 
+        /// <summary>
+        /// Convert some text to figure.
+        /// </summary>
+        /// <param name="text">Text.</param>
+        /// <returns>Figure.</returns>
         public static Figure ParseFigure(string text)
         {
             string[] words = text.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);

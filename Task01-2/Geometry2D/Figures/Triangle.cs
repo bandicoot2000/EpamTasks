@@ -2,12 +2,21 @@
 
 namespace Geometry2D
 {
+    /// <summary>
+    /// Triangle, three-piece shape.
+    /// </summary>
     public class Triangle : Figure
     {
         private double sideA;
         private double sideB;
         private double sideC;
 
+        /// <summary>
+        /// Creates a triangle on three sides.
+        /// </summary>
+        /// <param name="sideA">Side A in triangle.</param>
+        /// <param name="sideB">Side B in triangle</param>
+        /// <param name="sideC">Side C in triangle</param>
         public Triangle(double sideA, double sideB, double sideC)
         {
             if (sideA >= sideB + sideC ||

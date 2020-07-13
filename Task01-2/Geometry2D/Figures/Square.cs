@@ -1,9 +1,16 @@
 ﻿namespace Geometry2D
 {
+    /// <summary>
+    /// A square whose quadrangle is equal on all sides.
+    /// </summary>
     public class Square : Figure
     {
         private double side;
-        
+
+        /// <summary>
+        /// Creates a square by its side.
+        /// </summary>
+        /// <param name="side">Square side.</param>
         public Square(double side)
         {
             this.side = side;

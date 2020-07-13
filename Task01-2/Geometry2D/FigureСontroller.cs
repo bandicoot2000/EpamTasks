@@ -2,20 +2,36 @@
 
 namespace Geometry2D
 {
+    /// <summary>
+    /// Class work with array of figures.
+    /// </summary>
     public class FigureСontroller
     {
         private Figure[] figures;
 
+        /// <summary>
+        /// Create FigureController and load figures from file.
+        /// </summary>
+        /// <param name="file">File.</param>
         public FigureСontroller(string file)
         {
             LoadFigures(file);
         }
 
+        /// <summary>
+        /// Load figures from file.
+        /// </summary>
+        /// <param name="file">file.</param>
         public void LoadFigures(string file)
         {
             figures = FigureLoader.LoadFigures(file);
         }
 
+        /// <summary>
+        /// Search figures in array for some figure.
+        /// </summary>
+        /// <param name="figure">Figure.</param>
+        /// <returns>Array of figures.</returns>
         public Figure[] SearchFigure(Figure figure)
         {
             List<Figure> figures = new List<Figure>();
@@ -28,6 +44,11 @@ namespace Geometry2D
             return figures.ToArray();
         }
 
+        /// <summary>
+        /// Search figures in array for some figure.
+        /// </summary>
+        /// <param name="figure">Text with figure.</param>
+        /// <returns>Array of figures.</returns>
         public Figure[] SearchFigure(string text)
         {
             Figure figure = FigureLoader.ParseFigure(text);

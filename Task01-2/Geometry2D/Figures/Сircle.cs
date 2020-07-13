@@ -2,10 +2,20 @@
 
 namespace Geometry2D
 {
+    /// <summary>
+    /// The circle, all points of the figure are at a certain distance from the center of the figure.
+    /// </summary>
     public class Сircle : Figure
     {
+        /// <summary>
+        /// Circle radius.
+        /// </summary>
         protected double radius;
 
+        /// <summary>
+        /// Creates a circle along its radius.
+        /// </summary>
+        /// <param name="radius">Circle radius.</param>
         public Сircle(double radius)
         {
             this.radius = radius;

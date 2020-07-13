@@ -1,10 +1,18 @@
 ﻿namespace Geometry2D
 {
+    /// <summary>
+    /// A rectangle figure in which the sides are equal in pairs.
+    /// </summary>
     public class Rectangle : Figure
     {
         private double length;
         private double width;
 
+        /// <summary>
+        /// Creates a rectangle along its two sides.
+        /// </summary>
+        /// <param name="length">Size first side in rectangle.</param>
+        /// <param name="width">Size second side in rectangle.</param>
         public Rectangle(double length, double width)
         {
             this.length = length;
