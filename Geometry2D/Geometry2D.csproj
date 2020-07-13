@@ -42,8 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Figure.cs" />
+    <Compile Include="FigureLoader.cs" />
+    <Compile Include="Figures\Polygon.cs" />
+    <Compile Include="Figures\Rectangle.cs" />
     <Compile Include="Figures\Square.cs" />
+    <Compile Include="Figures\Triangle.cs" />
     <Compile Include="Figures\Сircle.cs" />
+    <Compile Include="FigureСontroller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
