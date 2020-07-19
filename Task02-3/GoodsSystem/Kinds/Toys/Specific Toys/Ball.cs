@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace GoodsSystem
 {
-    public class Shorts : Clothes
+    public class Ball : Toys
     {
-        public Shorts() : base("Shorts", 50.55) { }
+        public Ball() : base("Ball", 10.00) { }
     }
 }

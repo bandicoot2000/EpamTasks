@@ -45,8 +45,14 @@
     <Compile Include="Kinds\Clothes\Specific clothes\Sneakers.cs" />
     <Compile Include="Kinds\Clothes\Specific clothes\Tshirt.cs" />
     <Compile Include="Kinds\Food\Food.cs" />
+    <Compile Include="Kinds\Food\Specific food\Bread.cs" />
+    <Compile Include="Kinds\Food\Specific food\Milk.cs" />
+    <Compile Include="Kinds\Food\Specific food\Сhocolate.cs" />
+    <Compile Include="Kinds\Toys\Specific Toys\Ball.cs" />
+    <Compile Include="Kinds\Toys\Specific Toys\RubiksCube.cs" />
+    <Compile Include="Kinds\Toys\Specific Toys\Yo_yo.cs" />
     <Compile Include="Kinds\Toys\Toys.cs" />
-    <Compile Include="Kinds\Clothes\Сlothes.cs" />
+    <Compile Include="Kinds\Clothes\Clothes.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
