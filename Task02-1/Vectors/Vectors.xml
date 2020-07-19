@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vectors</name>
+    </assembly>
+    <members>
+        <member name="T:Vectors.Vector3">
+            <summary>
+            Class for working with vector3.
+            </summary>
+        </member>
+        <member name="P:Vectors.Vector3.AxisX">
+            <summary>
+            Get value axisX.
+            </summary>
+        </member>
+        <member name="P:Vectors.Vector3.AxisY">
+            <summary>
+            Get value axisY.
+            </summary>
+        </member>
+        <member name="P:Vectors.Vector3.AxisZ">
+            <summary>
+            Get value axisZ.
+            </summary>
+        </member>
+        <member name="P:Vectors.Vector3.Length">
+            <summary>
+            Get vector 3 length.
+            </summary>
+        </member>
+        <member name="M:Vectors.Vector3.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Vector3 class constructor.
+            </summary>
+            <param name="axisX">Value vector3 axisX.</param>
+            <param name="axisY">Value vector3 axisY.</param>
+            <param name="axisZ">Value vector3 axisZ.</param>
+        </member>
+        <member name="M:Vectors.Vector3.op_Addition(Vectors.Vector3,Vectors.Vector3)">
+            <summary>
+            The sum of two vectors.
+            </summary>
+            <param name="vector1">First Vector.</param>
+            <param name="vector2">Second vector.</param>
+            <returns>Sum vector.</returns>
+        </member>
+        <member name="M:Vectors.Vector3.op_Subtraction(Vectors.Vector3,Vectors.Vector3)">
+            <summary>
+            Difference of two vectors
+            </summary>
+            <param name="vector1">First Vector.</param>
+            <param name="vector2">Second vector.</param>
+            <returns>Def vector.</returns>
+        </member>
+        <member name="M:Vectors.Vector3.op_Multiply(System.Int32,Vectors.Vector3)">
+            <summary>
+            Product of value by a vector.
+            </summary>
+            <param name="value">Value.</param>
+            <param name="vector">Vector.</param>
+            <returns>Result vector.</returns>
+        </member>
+        <member name="M:Vectors.Vector3.op_Multiply(Vectors.Vector3,System.Int32)">
+            <summary>
+            Product of value by a vector.
+            </summary>
+            <param name="value">Value.</param>
+            <param name="vector">Vector.</param>
+            <returns>Result vector.</returns>
+        </member>
+        <member name="M:Vectors.Vector3.op_Multiply(Vectors.Vector3,Vectors.Vector3)">
+            <summary>
+            Product of a vector by a vector.
+            </summary>
+            <param name="vector1">First Vector.</param>
+            <param name="vector2">Second vector.</param>
+            <returns>Result vector.</returns>
+        </member>
+        <member name="M:Vectors.Vector3.Equals(System.Object)">
+            <summary>
+            Override method Equals.
+            </summary>
+            <param name="obj">Object.</param>
+            <returns>Comparison result.</returns>
+        </member>
+        <member name="M:Vectors.Vector3.GetHashCode">
+            <summary>
+            Override method GetHashCode.
+            </summary>
+            <returns>Hash code.</returns>
+        </member>
+        <member name="M:Vectors.Vector3.ToString">
+            <summary>
+            Override method ToString.
+            </summary>
+            <returns>String vector.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GoodsSystem</name>
+    </assembly>
+    <members>
+        <member name="T:GoodsSystem.Shorts">
+            <summary>
+            Class shorts.
+            </summary>
+        </member>
+        <member name="M:GoodsSystem.Shorts.#ctor">
+            <summary>
+            Construstor shorts.
+            </summary>
+        </member>
+        <member name="T:GoodsSystem.Sneakers">
+            <summary>
+            Class sneakers.
+            </summary>
+        </member>
+        <member name="M:GoodsSystem.Sneakers.#ctor">
+            <summary>
+            Constructor sneakers.
+            </summary>
+        </member>
+        <member name="T:GoodsSystem.Tshirt">
+            <summary>
+            Class tshirt.
+            </summary>
+        </member>
+        <member name="M:GoodsSystem.Tshirt.#ctor">
+            <summary>
+            Constructor tshirt.
+            </summary>
+        </member>
+        <member name="T:GoodsSystem.Food">
+            <summary>
+            Class food.
+            </summary>
+        </member>
+        <member name="M:GoodsSystem.Food.#ctor(System.String,System.Double)">
+            <summary>
+            Food constructor.
+            </summary>
+            <param name="name">Name.</param>
+            <param name="price">Prise.</param>
+        </member>
+        <member name="M:GoodsSystem.Food.Equals(System.Object)">
+            <summary>
+            Override method Equals.
+            </summary>
+            <param name="obj">Object.</param>
+            <returns>Comparison result.</returns>
+        </member>
+        <member name="M:GoodsSystem.Food.GetHashCode">
+            <summary>
+            Override method GetHashCode.
+            </summary>
+            <returns>Hash code.</returns>
+        </member>
+        <member name="M:GoodsSystem.Food.op_Addition(GoodsSystem.Food,GoodsSystem.Food)">
+            <summary>
+            Sum of two food.
+            </summary>
+            <param name="food1">First food.</param>
+            <param name="food2">Second food.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoodsSystem.Food.op_Explicit(GoodsSystem.Clothes)~GoodsSystem.Food">
+            <summary>
+            Convert clothes to food.
+            </summary>
+            <param name="clothes">Clothes.</param>
+        </member>
+        <member name="M:GoodsSystem.Food.op_Explicit(GoodsSystem.Toys)~GoodsSystem.Food">
+            <summary>
+            Convert toys to food.
+            </summary>
+            <param name="toys">Toys.</param>
+        </member>
+        <member name="T:GoodsSystem.Bread">
+            <summary>
+            Class bread.
+            </summary>
+        </member>
+        <member name="M:GoodsSystem.Bread.#ctor">
+            <summary>
+            Constructor bread.
+            </summary>
+        </member>
+        <member name="T:GoodsSystem.Milk">
+            <summary>
+            Class milk.
+            </summary>
+        </member>
+        <member name="M:GoodsSystem.Milk.#ctor">
+            <summary>
+            Constructor milk.
+            </summary>
+        </member>
+        <member name="T:GoodsSystem.Сhocolate">
+            <summary>
+            Class chocolate.
+            </summary>
+        </member>
+        <member name="M:GoodsSystem.Сhocolate.#ctor">
+            <summary>
+            Constructor chocolate.
+            </summary>
+        </member>
+        <member name="T:GoodsSystem.Ball">
+            <summary>
+            Class ball.
+            </summary>
+        </member>
+        <member name="M:GoodsSystem.Ball.#ctor">
+            <summary>
+            Constructor ball.
+            </summary>
+        </member>
+        <member name="T:GoodsSystem.RubiksCube">
+            <summary>
+            Class RubiksCube.
+            </summary>
+        </member>
+        <member name="M:GoodsSystem.RubiksCube.#ctor">
+            <summary>
+            Constructor RubiksCube.
+            </summary>
+        </member>
+        <member name="T:GoodsSystem.Yo_Yo">
+            <summary>
+            Class Yo_yo.
+            </summary>
+        </member>
+        <member name="M:GoodsSystem.Yo_Yo.#ctor">
+            <summary>
+            Constructor yo_yo.
+            </summary>
+        </member>
+        <member name="T:GoodsSystem.Toys">
+            <summary>
+            Class Toys.
+            </summary>
+        </member>
+        <member name="M:GoodsSystem.Toys.#ctor(System.String,System.Double)">
+            <summary>
+            Constructor toys.
+            </summary>
+            <param name="name">Name.</param>
+            <param name="price">Price.</param>
+        </member>
+        <member name="M:GoodsSystem.Toys.Equals(System.Object)">
+            <summary>
+            Override method Equals.
+            </summary>
+            <param name="obj">Object.</param>
+            <returns>Comparison result.</returns>
+        </member>
+        <member name="M:GoodsSystem.Toys.GetHashCode">
+            <summary>
+            Override method GetHashCode.
+            </summary>
+            <returns>Hash code.</returns>
+        </member>
+        <member name="M:GoodsSystem.Toys.op_Addition(GoodsSystem.Toys,GoodsSystem.Toys)">
+            <summary>
+            Sum of two toys.
+            </summary>
+            <param name="toys1">First toys.</param>
+            <param name="toys2">Second toys.</param>
+            <returns>Result toys.</returns>
+        </member>
+        <member name="M:GoodsSystem.Toys.op_Explicit(GoodsSystem.Food)~GoodsSystem.Toys">
+            <summary>
+            Convert food to toys.
+            </summary>
+            <param name="food">Food.</param>
+        </member>
+        <member name="M:GoodsSystem.Toys.op_Explicit(GoodsSystem.Clothes)~GoodsSystem.Toys">
+            <summary>
+            Convert clothes to toys.
+            </summary>
+            <param name="clothes">Clothes.</param>
+        </member>
+        <member name="T:GoodsSystem.Clothes">
+            <summary>
+            Class clothes.
+            </summary>
+        </member>
+        <member name="M:GoodsSystem.Clothes.#ctor(System.String,System.Double)">
+            <summary>
+            Construstor clothes.
+            </summary>
+            <param name="name">Name.</param>
+            <param name="price">Price.</param>
+        </member>
+        <member name="M:GoodsSystem.Clothes.Equals(System.Object)">
+            <summary>
+            Override method Equals.
+            </summary>
+            <param name="obj">Object.</param>
+            <returns>Comparison result.</returns>
+        </member>
+        <member name="M:GoodsSystem.Clothes.GetHashCode">
+            <summary>
+            Override method GetHashCode.
+            </summary>
+            <returns>Hash code.</returns>
+        </member>
+        <member name="M:GoodsSystem.Clothes.op_Addition(GoodsSystem.Clothes,GoodsSystem.Clothes)">
+            <summary>
+            Sum of two clothes.
+            </summary>
+            <param name="clothes1">First clothes.</param>
+            <param name="clothes2">Second clothes.</param>
+            <returns>Result clothes.</returns>
+        </member>
+        <member name="M:GoodsSystem.Clothes.op_Explicit(GoodsSystem.Food)~GoodsSystem.Clothes">
+            <summary>
+            Convert food to clothes.
+            </summary>
+            <param name="food">Food.</param>
+        </member>
+        <member name="M:GoodsSystem.Clothes.op_Explicit(GoodsSystem.Toys)~GoodsSystem.Clothes">
+            <summary>
+            Convert toys to clothes.
+            </summary>
+            <param name="toys">Toys.</param>
+        </member>
+        <member name="T:GoodsSystem.Product">
+            <summary>
+            Class product.
+            </summary>
+        </member>
+        <member name="P:GoodsSystem.Product.Name">
+            <summary>
+            Product name.
+            </summary>
+        </member>
+        <member name="P:GoodsSystem.Product.Price">
+            <summary>
+            Product price.
+            </summary>
+        </member>
+        <member name="M:GoodsSystem.Product.op_Implicit(GoodsSystem.Product)~System.Int32">
+            <summary>
+            Convert product to int.
+            </summary>
+            <param name="product">Product.</param>
+        </member>
+        <member name="M:GoodsSystem.Product.op_Implicit(GoodsSystem.Product)~System.Double">
+            <summary>
+            Convert product to double.
+            </summary>
+            <param name="product">Product.</param>
+        </member>
+        <member name="M:GoodsSystem.Product.#ctor(System.String,System.Double)">
+            <summary>
+            Construstor product. 
+            </summary>
+            <param name="name">Product name.</param>
+            <param name="price">Product price.</param>
+        </member>
+        <member name="M:GoodsSystem.Product.ToString">
+            <summary>
+            Override method ToString.
+            </summary>
+            <returns>String product.</returns>
+        </member>
+        <member name="M:GoodsSystem.Product.GetHashCode">
+            <summary>
+            Override method GetHashCode.
+            </summary>
+            <returns>Hash code.</returns>
+        </member>
+        <member name="M:GoodsSystem.Product.Equals(System.Object)">
+            <summary>
+            Override method Equals.
+            </summary>
+            <param name="obj">Object.</param>
+            <returns>Comparison result.</returns>
+        </member>
+    </members>
+</doc>

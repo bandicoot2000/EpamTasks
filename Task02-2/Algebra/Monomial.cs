@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algebra
 {
@@ -18,14 +14,14 @@ namespace Algebra
         /// <summary>
         /// Degree of monomial.
         /// </summary>
-        public uint Degree { get; private set; }
+        public int Degree { get; private set; }
 
         /// <summary>
         /// Construstor monomial.
         /// </summary>
         /// <param name="coefficient">Coefficient monomial.</param>
         /// <param name="degree">Degree monomial.</param>
-        public Monomial(double coefficient = 1, uint degree = 1)
+        public Monomial(double coefficient = 1, int degree = 1)
         {
             Coefficient = coefficient;
             Degree = degree;
@@ -54,10 +50,15 @@ namespace Algebra
             return monomial;
         }
 
+        /// <summary>
+        /// Composition of two monomial.
+        /// </summary>
+        /// <param name="monomial1">First monomial.</param>
+        /// <param name="monomial2">Second monomial.</param>
+        /// <returns>Result monomial.</returns>
         public static Monomial operator *(Monomial monomial1, Monomial monomial2)
         {
-            if (monomial1.Degree != monomial2.Degree) throw new Exception("Degrees of monomials do not match.");
-            return new Monomial(monomial1.Coefficient * monomial2.Coefficient, monomial1.Degree + 1);
+            return new Monomial(monomial1.Coefficient * monomial2.Coefficient, monomial1.Degree + monomial2.Degree);
         }
 
         /// <summary>

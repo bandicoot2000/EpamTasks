@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Algebra</name>
+    </assembly>
+    <members>
+        <member name="T:Algebra.Monomial">
+            <summary>
+            class monomial.
+            </summary>
+        </member>
+        <member name="P:Algebra.Monomial.Coefficient">
+            <summary>
+            Coefficient of monomial.
+            </summary>
+        </member>
+        <member name="P:Algebra.Monomial.Degree">
+            <summary>
+            Degree of monomial.
+            </summary>
+        </member>
+        <member name="M:Algebra.Monomial.#ctor(System.Double,System.Int32)">
+            <summary>
+            Construstor monomial.
+            </summary>
+            <param name="coefficient">Coefficient monomial.</param>
+            <param name="degree">Degree monomial.</param>
+        </member>
+        <member name="M:Algebra.Monomial.op_Addition(Algebra.Monomial,Algebra.Monomial)">
+            <summary>
+            Sum of two monomial.
+            </summary>
+            <param name="monomial1">First monomial.</param>
+            <param name="monomial2">Second monomial.</param>
+            <returns>Sum monomial.</returns>
+        </member>
+        <member name="M:Algebra.Monomial.op_UnaryNegation(Algebra.Monomial)">
+            <summary>
+            Negative monomial.
+            </summary>
+            <param name="monomial">Monomial.</param>
+            <returns>Negative monomial.</returns>
+        </member>
+        <member name="M:Algebra.Monomial.op_Multiply(Algebra.Monomial,Algebra.Monomial)">
+            <summary>
+            Composition of two monomial.
+            </summary>
+            <param name="monomial1">First monomial.</param>
+            <param name="monomial2">Second monomial.</param>
+            <returns>Result monomial.</returns>
+        </member>
+        <member name="M:Algebra.Monomial.CompareTo(System.Object)">
+            <summary>
+            Compere objects.
+            </summary>
+            <param name="obj">Object.</param>
+            <returns>Comparison result.</returns>
+        </member>
+        <member name="M:Algebra.Monomial.Equals(System.Object)">
+            <summary>
+            Override method Equals.
+            </summary>
+            <param name="obj">Object.</param>
+            <returns>Comparison result.</returns>
+        </member>
+        <member name="M:Algebra.Monomial.GetHashCode">
+            <summary>
+            Override method GetHashCode.
+            </summary>
+            <returns>Hash code.</returns>
+        </member>
+        <member name="M:Algebra.Monomial.ToString">
+            <summary>
+            Override method ToString.
+            </summary>
+            <returns>String monomial.</returns>
+        </member>
+        <member name="T:Algebra.Polynomial">
+            <summary>
+            Class polynomial.
+            </summary>
+        </member>
+        <member name="M:Algebra.Polynomial.#ctor(Algebra.Monomial[])">
+            <summary>
+            Construstor polynomial.
+            </summary>
+            <param name="monomials">Monomials.</param>
+        </member>
+        <member name="M:Algebra.Polynomial.op_Addition(Algebra.Polynomial,Algebra.Polynomial)">
+            <summary>
+            The sum of two polynomial.
+            </summary>
+            <param name="polynomial1">First polynomial.</param>
+            <param name="polynomial2">Second polynomial.</param>
+            <returns>Result polynomial.</returns>
+        </member>
+        <member name="M:Algebra.Polynomial.op_Subtraction(Algebra.Polynomial,Algebra.Polynomial)">
+            <summary>
+            Difference of two polynomial.
+            </summary>
+            <param name="polynomial1">First polynomial.</param>
+            <param name="polynomial2">Second polynomial.</param>
+            <returns>Result polynomial.</returns>
+        </member>
+        <member name="M:Algebra.Polynomial.op_Multiply(Algebra.Polynomial,Algebra.Polynomial)">
+            <summary>
+            Composition of two polynomial.
+            </summary>
+            <param name="polynomial1">First polynomial.</param>
+            <param name="polynomial2">Second polynomial.</param>
+            <returns>Result polynomial.</returns>
+        </member>
+        <member name="M:Algebra.Polynomial.Equals(System.Object)">
+            <summary>
+            Override method Equals.
+            </summary>
+            <param name="obj">Object.</param>
+            <returns>Comparison result.</returns>
+        </member>
+        <member name="M:Algebra.Polynomial.GetHashCode">
+            <summary>
+            Override method GetHashCode.
+            </summary>
+            <returns>Hash code.</returns>
+        </member>
+        <member name="M:Algebra.Polynomial.ToString">
+            <summary>
+            Override method ToString.
+            </summary>
+            <returns>String monomial.</returns>
+        </member>
+    </members>
+</doc>

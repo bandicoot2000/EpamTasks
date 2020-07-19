@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algebra
 {
@@ -103,7 +100,18 @@ namespace Algebra
         public override bool Equals(object obj)
         {
             return obj is Polynomial polynomial &&
-                   EqualityComparer<List<Monomial>>.Default.Equals(monomials, polynomial.monomials);
+                   EqualsMonomials(monomials.ToArray(), polynomial.monomials.ToArray());
+        }
+
+        private bool EqualsMonomials(Monomial[] monomials1, Monomial[] monomials2)
+        {
+            if (monomials1.Length != monomials2.Length) return false;
+            bool result = true;
+            for (int i = 0; i < monomials1.Length; i++)
+            {
+                result = result && monomials1[i].Equals(monomials2[i]);
+            }
+            return result;
         }
 
         /// <summary>

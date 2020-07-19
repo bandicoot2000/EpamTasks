@@ -50,16 +50,14 @@ namespace GoodsSystem
             Price = price;
         }
 
+
         /// <summary>
-        /// Override method Equals.
+        /// Override method ToString.
         /// </summary>
-        /// <param name="obj">Object.</param>
-        /// <returns>Comparison result.</returns>
-        public override bool Equals(object obj)
+        /// <returns>String product.</returns>
+        public override string ToString()
         {
-            return obj is Product product &&
-                   Name == product.Name &&
-                   Price == product.Price;
+            return "Name: " + Name + " Price: " + Price.ToString("F");
         }
 
         /// <summary>
@@ -70,17 +68,20 @@ namespace GoodsSystem
         {
             int hashCode = -44027456;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Price);
+            hashCode = hashCode * -1521134295 + Price.GetHashCode();
             return hashCode;
         }
 
         /// <summary>
-        /// Override method ToString.
+        /// Override method Equals.
         /// </summary>
-        /// <returns>String product.</returns>
-        public override string ToString()
+        /// <param name="obj">Object.</param>
+        /// <returns>Comparison result.</returns>
+        public override bool Equals(object obj)
         {
-            return "Name: " + Name + " Price: " + Price;
+            return obj is Product product &&
+                   Name == product.Name &&
+                   Price == product.Price;
         }
     }
 }

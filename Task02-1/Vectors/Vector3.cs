@@ -69,9 +69,20 @@ namespace Vectors
         /// <param name="value">Value.</param>
         /// <param name="vector">Vector.</param>
         /// <returns>Result vector.</returns>
-        public static Vector3 operator *(double value, Vector3 vector)
+        public static Vector3 operator *(int value, Vector3 vector)
         {
             return new Vector3(value * vector.axisX, value * vector.axisY, value * vector.axisZ);
+        }
+
+        /// <summary>
+        /// Product of value by a vector.
+        /// </summary>
+        /// <param name="value">Value.</param>
+        /// <param name="vector">Vector.</param>
+        /// <returns>Result vector.</returns>
+        public static Vector3 operator *(Vector3 vector, int value)
+        {
+            return value * vector;
         }
 
         /// <summary>
