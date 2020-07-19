@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace Algebra
 {
-    class Polynomial
+    /// <summary>
+    /// Class polynomial.
+    /// </summary>
+    public class Polynomial
     {
         List<Monomial> monomials;
 
+        /// <summary>
+        /// Construstor polynomial.
+        /// </summary>
+        /// <param name="monomials">Monomials.</param>
         public Polynomial(params Monomial[] monomials)
         {
             this.monomials = new List<Monomial>();
@@ -17,6 +24,13 @@ namespace Algebra
             Addition();
         }
 
+
+        /// <summary>
+        /// The sum of two polynomial.
+        /// </summary>
+        /// <param name="polynomial1">First polynomial.</param>
+        /// <param name="polynomial2">Second polynomial.</param>
+        /// <returns>Result polynomial.</returns>
         public static Polynomial operator +(Polynomial polynomial1, Polynomial polynomial2)
         {
             List<Monomial> monomials = new List<Monomial>();
@@ -27,6 +41,12 @@ namespace Algebra
             return polynomial;
         }
 
+        /// <summary>
+        /// Difference of two polynomial.
+        /// </summary>
+        /// <param name="polynomial1">First polynomial.</param>
+        /// <param name="polynomial2">Second polynomial.</param>
+        /// <returns>Result polynomial.</returns>
         public static Polynomial operator -(Polynomial polynomial1, Polynomial polynomial2)
         {
             for (int i = 0; i < polynomial2.monomials.Count; i++)
@@ -38,6 +58,12 @@ namespace Algebra
             return polynomial1 + polynomial2;
         }
 
+        /// <summary>
+        /// Composition of two polynomial.
+        /// </summary>
+        /// <param name="polynomial1">First polynomial.</param>
+        /// <param name="polynomial2">Second polynomial.</param>
+        /// <returns>Result polynomial.</returns>
         public static Polynomial operator *(Polynomial polynomial1, Polynomial polynomial2)
         {
             List<Monomial> monomials = new List<Monomial>();
@@ -69,5 +95,38 @@ namespace Algebra
             }
         }
 
+        /// <summary>
+        /// Override method Equals.
+        /// </summary>
+        /// <param name="obj">Object.</param>
+        /// <returns>Comparison result.</returns>
+        public override bool Equals(object obj)
+        {
+            return obj is Polynomial polynomial &&
+                   EqualityComparer<List<Monomial>>.Default.Equals(monomials, polynomial.monomials);
+        }
+
+        /// <summary>
+        /// Override method GetHashCode.
+        /// </summary>
+        /// <returns>Hash code.</returns>
+        public override int GetHashCode()
+        {
+            return 546032158 + EqualityComparer<List<Monomial>>.Default.GetHashCode(monomials);
+        }
+
+        /// <summary>
+        /// Override method ToString.
+        /// </summary>
+        /// <returns>String monomial.</returns>
+        public override string ToString()
+        {
+            string result = "";
+            foreach (Monomial monomial in monomials)
+            {
+                result += monomial.ToString() + " ";
+            }
+            return result;
+        }
     }
 }

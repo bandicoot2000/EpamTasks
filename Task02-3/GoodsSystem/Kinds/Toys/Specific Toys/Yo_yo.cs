@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace GoodsSystem
 {
-    class Yo_yo : Toys
+    /// <summary>
+    /// Class Yo_yo.
+    /// </summary>
+    public class Yo_yo : Toys
     {
+        /// <summary>
+        /// Constructor yo_yo.
+        /// </summary>
         public Yo_yo() : base("Yo_yo", 8.77) { }
     }
 }
