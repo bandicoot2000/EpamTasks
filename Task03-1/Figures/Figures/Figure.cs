@@ -8,7 +8,7 @@ namespace Figures
 {
     public abstract class Figure : IMaterial, IFigure
     {
-        private IMaterial material;
+        protected IMaterial material;
 
         public Figure(IMaterial material)
         {
@@ -17,7 +17,7 @@ namespace Figures
 
         protected Figure(Figure figure)
         {
-            if (this.GetArea() < figure.GetArea()) throw new Exception("This shape cannot be cut");
+            material = figure.material;
         }
 
         public void PaintFigure(Color color)

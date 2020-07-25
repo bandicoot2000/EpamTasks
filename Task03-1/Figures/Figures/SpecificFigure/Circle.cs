@@ -18,6 +18,7 @@ namespace Figures
         public Circle(double radius, Figure figure) : base(figure)
         {
             Radius = radius;
+            if (this.GetArea() < figure.GetArea()) throw new Exception("This shape cannot be cut");
         }
 
         public override double GetArea()

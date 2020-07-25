@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Figures\SpecificFigure\Circle.cs" />
+    <Compile Include="Figures\SpecificFigure\Polygon.cs" />
+    <Compile Include="Figures\SpecificFigure\Rectangle.cs" />
+    <Compile Include="Figures\SpecificFigure\Square.cs" />
+    <Compile Include="Figures\SpecificFigure\Triangle.cs" />
     <Compile Include="Materials\Color.cs" />
     <Compile Include="Figures\Figure.cs" />
     <Compile Include="Materials\Film.cs" />
