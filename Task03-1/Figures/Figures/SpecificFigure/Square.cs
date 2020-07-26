@@ -29,7 +29,7 @@ namespace Figures
         public Square(double side, Figure figure) : base(figure)
         {
             Side = side;
-            if (this.GetArea() < figure.GetArea()) throw new Exception("This shape cannot be cut");
+            if (this.GetArea() > figure.GetArea()) throw new Exception("This shape cannot be cut");
         }
 
         public override bool Equals(object obj)

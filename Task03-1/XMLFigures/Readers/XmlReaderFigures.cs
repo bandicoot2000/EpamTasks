@@ -42,7 +42,7 @@ namespace XMLFigures
             IMaterial material;
             if (ReadValue("material") == "Paper") material = new Paper((Color)(Enum.Parse(typeof(Color), ReadValue("color"))));
             else material = new Film();
-            return new Rectangle(double.Parse(ReadValue("lingth")), int.Parse(ReadValue("width")), material);
+            return new Rectangle(double.Parse(ReadValue("lingth")), double.Parse(ReadValue("width")), material);
         }
 
         public override Square ReadSquare()

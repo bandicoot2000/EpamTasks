@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<figures>
+	<figure>
+		<kind>Circle</kind>
+		<material>Film</material>
+		<radius>4,50</radius>
+	</figure>
+	<figure>
+		<kind>Polygon</kind>
+		<material>Paper</material>
+		<color>Blue</color>
+		<side>5,00</side>
+		<amountSide>10</amountSide>
+	</figure>
+	<figure>
+		<kind>Square</kind>
+		<material>Paper</material>
+		<color>None</color>
+		<side>10,00</side>
+	</figure>
+	<figure>
+		<kind>Rectangle</kind>
+		<material>Film</material>
+		<lingth>6,00</lingth>
+		<width>8,80</width>
+	</figure>
+	<figure>
+		<kind>Triangle</kind>
+		<material>Paper</material>
+		<color>Red</color>
+		<sideA>3,00</sideA>
+		<sideB>4,00</sideB>
+		<sideC>5,00</sideC>
+	</figure>
+</figures>

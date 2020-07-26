@@ -46,7 +46,7 @@ namespace Figures
             SideA = sideA;
             SideB = sideB;
             SideC = sideC;
-            if (this.GetArea() < figure.GetArea()) throw new Exception("This shape cannot be cut");
+            if (this.GetArea() > figure.GetArea()) throw new Exception("This shape cannot be cut");
         }
 
         public override double GetArea()

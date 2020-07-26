@@ -55,7 +55,7 @@ namespace XMLFigures
 
         public override void WriteTriangle(Triangle triangle)
         {
-            WriteValue("Square", "kind");
+            WriteValue("Triangle", "kind");
             WriteValue(triangle.GetMaterial().ToString("Type"), "material");
             if (triangle.GetMaterial() is Paper) WriteValue(((Paper)triangle.GetMaterial()).Color.ToString(), "color");
             WriteValue(triangle.SideA.ToString("F"), "sideA");

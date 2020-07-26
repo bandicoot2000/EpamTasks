@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<figures>
+	<figure>
+		<kind>Circle</kind>
+		<material>Film</material>
+		<radius>4,50</radius>
+	</figure>
+	<figure>
+		<kind>Rectangle</kind>
+		<material>Film</material>
+		<lingth>6,00</lingth>
+		<width>8,80</width>
+	</figure>
+</figures>

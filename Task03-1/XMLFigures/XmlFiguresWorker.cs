@@ -37,9 +37,9 @@ namespace XMLFigures
                 }
             }
 
-            public static Figure SelectingFigureToRead(FiguresReader figuresReader, string type)
+            public static Figure SelectingFigureToRead(FiguresReader figuresReader, string kind)
             {
-                switch (type)
+                switch (kind)
                 {
                     case "Circle":
                         return figuresReader.ReadCircle();
@@ -52,7 +52,7 @@ namespace XMLFigures
                     case "Triangle":
                         return figuresReader.ReadTriangle();
                     default:
-                        throw new Exception("Incorrect figure");
+                        throw new Exception("Incorrect figure " + kind);
                 }
             }
 
@@ -64,7 +64,7 @@ namespace XMLFigures
         /// Created new XmlFiguresWorker.
         /// </summary>
         /// <param name="file">File.</param>
-        public XmlFiguresWorker(string file = @"..\..\Figures.xml")
+        public XmlFiguresWorker(string file = @"..\..\..\Figures.xml")
         {
             this.file = file;
         }
@@ -78,7 +78,7 @@ namespace XMLFigures
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
             settings.IndentChars = "\t";
-            settings.NewLineChars = "\n\r";
+            settings.NewLineChars = "\r\n";
             using (XmlWriter xml = XmlWriter.Create(file, settings))
             {
                 XmlWriterFigures xmlWriterFigures = new XmlWriterFigures(xml);
@@ -106,7 +106,7 @@ namespace XMLFigures
             using (StreamWriter stream = new StreamWriter(file))
             {
                 StreamWriterFigures streamWriterFigures = new StreamWriterFigures(stream);
-                stream.WriteLine("");
+                stream.WriteLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
                 stream.WriteLine("<figures>");
                 for (int i = 0; i < figures.Length; i++)
                 {
@@ -114,7 +114,7 @@ namespace XMLFigures
                     {
                         stream.WriteLine("\t<figure>");
                         WorkerHalper.SelectingFigureToWrite(streamWriterFigures, figures[i]);
-                        stream.Write("\t</figure>");
+                        stream.WriteLine("\t</figure>");
                     }
                 }
                 stream.Write("</figures>");
@@ -131,7 +131,7 @@ namespace XMLFigures
             using(XmlReader xml = XmlReader.Create(file))
             {
                 XmlReaderFigures xmlReaderFigures = new XmlReaderFigures(xml);
-                while(xml.ReadToFollowing("type"))
+                while(xml.ReadToFollowing("kind"))
                 {
                     xml.Read();
                     figures.Add(WorkerHalper.SelectingFigureToRead(xmlReaderFigures, xml.Value));
@@ -150,11 +150,11 @@ namespace XMLFigures
             using (StreamReader stream = new StreamReader(file))
             {
                 StreamReaderFigures streamReaderFigures = new StreamReaderFigures(stream);
-                string type = streamReaderFigures.ReadValue("type");
-                while (type != null)
+                string kind = streamReaderFigures.ReadValue("kind");
+                while (kind != null)
                 {
-                    figures.Add(WorkerHalper.SelectingFigureToRead(streamReaderFigures, type));
-                    type = streamReaderFigures.ReadValue("type");
+                    figures.Add(WorkerHalper.SelectingFigureToRead(streamReaderFigures, kind));
+                    kind = streamReaderFigures.ReadValue("kind");
                 }
             }
             return figures.ToArray();

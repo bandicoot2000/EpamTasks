@@ -39,7 +39,7 @@ namespace Figures
             if (amountSides < 5) throw new Exception("The number of parties must be more than four.");
             Side = side;
             AmountSides = amountSides;
-            if (this.GetArea() < figure.GetArea()) throw new Exception("This shape cannot be cut");
+            if (this.GetArea() > figure.GetArea()) throw new Exception("This shape cannot be cut");
         }
 
         public override bool Equals(object obj)

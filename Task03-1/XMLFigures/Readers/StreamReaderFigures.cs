@@ -18,12 +18,12 @@ namespace XMLFigures
         {
             Regex regex = new Regex("<" + elementName + ">(.*)</" + elementName + ">");
             string line = stream.ReadLine();
-            while (regex.IsMatch(line))
+            while (!regex.IsMatch(line))
             {
                 line = stream.ReadLine();
                 if (stream.EndOfStream) return null;
             }
-            string[] words = line.Split(new string[] { "<" + elementName + ">", "</" + elementName + ">" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = line.Split(new string[] { "\t\t<" + elementName + ">", "</" + elementName + ">" }, StringSplitOptions.RemoveEmptyEntries);
             return words[0];
         }
 
@@ -48,7 +48,7 @@ namespace XMLFigures
             IMaterial material;
             if (ReadValue("material") == "Paper") material = new Paper((Color)(Enum.Parse(typeof(Color), ReadValue("color"))));
             else material = new Film();
-            return new Rectangle(double.Parse(ReadValue("lingth")), int.Parse(ReadValue("width")), material);
+            return new Rectangle(double.Parse(ReadValue("lingth")), double.Parse(ReadValue("width")), material);
         }
 
         public override Square ReadSquare()

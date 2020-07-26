@@ -13,6 +13,10 @@ namespace Boxes
         private IMaterial[] figures;
         private XmlFiguresWorker XmlFiguresWorker;
 
+        /// <summary>
+        /// Created new box.
+        /// </summary>
+        /// <param name="file">File.</param>
         public Box(string file = null)
         {
             figures = new IMaterial[20];
@@ -30,6 +34,7 @@ namespace Boxes
             while (figures[i] != null)
             {
                 if (figures[i].Equals(figure)) throw new Exception("Such a figure already exists");
+                i++;
                 if (i == figures.Length) throw new Exception("The box is full");
             }
             figures[i] = figure;
@@ -153,14 +158,17 @@ namespace Boxes
                 if (this.figures[i] != null && ((Figure)this.figures[i]).GetMaterial() is Film)
                 {
                     figures.Add((Figure)this.figures[i]);
-                    figures[i] = null;
+                    this.figures[i] = null;
                 }
             }
             return figures.ToArray();
         }
 
-
-        private Figure[] GetAllFigures()
+        /// <summary>
+        /// Return all figures.
+        /// </summary>
+        /// <returns>Figures.</returns>
+        public Figure[] GetAllFigures()
         {
             List<Figure> figures = new List<Figure>();
             for (int i = 0; i < this.figures.Length; i++)
