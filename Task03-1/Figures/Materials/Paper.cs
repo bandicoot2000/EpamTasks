@@ -40,5 +40,11 @@ namespace Figures
         {
             return "Paper: Color = " + color;
         }
+
+        public string ToString(string format)
+        {
+            if (format == "Type") return "Paper";
+            else throw new Exception("Incorrect format");   
+        }
     }
 }

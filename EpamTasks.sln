@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Figures", "Task03-1\Figures\Figures.csproj", "{FB64F15F-99A1-4B27-A1EF-21D962604B3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLFigures", "Task03-1\XMLFigures\XMLFigures.csproj", "{3E25A943-B261-4BB0-A706-F6249509EDDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxes", "Task03-1\Boxes\Boxes.csproj", "{7BCAD50E-5C3E-4ABC-8038-54392B97153E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{FB64F15F-99A1-4B27-A1EF-21D962604B3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB64F15F-99A1-4B27-A1EF-21D962604B3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB64F15F-99A1-4B27-A1EF-21D962604B3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E25A943-B261-4BB0-A706-F6249509EDDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E25A943-B261-4BB0-A706-F6249509EDDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E25A943-B261-4BB0-A706-F6249509EDDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E25A943-B261-4BB0-A706-F6249509EDDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BCAD50E-5C3E-4ABC-8038-54392B97153E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BCAD50E-5C3E-4ABC-8038-54392B97153E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BCAD50E-5C3E-4ABC-8038-54392B97153E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BCAD50E-5C3E-4ABC-8038-54392B97153E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

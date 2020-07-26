@@ -22,5 +22,10 @@ namespace Figures
         {
             return "Film";
         }
+        public string ToString(string format)
+        {
+            if (format == "Type") return "Film";
+            else throw new Exception("Incorrect format");
+        }
     }
 }

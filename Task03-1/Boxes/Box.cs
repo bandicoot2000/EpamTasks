@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Figures
+namespace Boxes
 {
-    public interface IMaterial
+    public class Box
     {
-        string ToString(string format);
     }
 }
