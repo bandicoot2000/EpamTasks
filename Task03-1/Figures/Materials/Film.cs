@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Figures
 {
+    /// <summary>
+    /// Material film.
+    /// </summary>
     public class Film : IMaterial
     {
+
         public override bool Equals(object obj)
         {
             return obj is Film;
@@ -17,6 +18,7 @@ namespace Figures
         {
             return base.GetHashCode();
         }
+
 
         public override string ToString()
         {

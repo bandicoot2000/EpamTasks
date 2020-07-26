@@ -1,17 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Figures
 {
+    /// <summary>
+    /// Figure triangle.
+    /// </summary>
     public class Triangle : Figure
     {
+        /// <summary>
+        /// Side A triangle.
+        /// </summary>
         public double SideA { get; private set; }
+        /// <summary>
+        /// Side B triangle.
+        /// </summary>
         public double SideB { get; private set; }
+        /// <summary>
+        /// Side C triangle.
+        /// </summary>
         public double SideC { get; private set; }
 
+        /// <summary>
+        /// Cuts new triangle out of material.
+        /// </summary>
+        /// <param name="sideA">SideA.</param>
+        /// <param name="sideB">SideB.</param>
+        /// <param name="sideC">SideC.</param>
+        /// <param name="material">Material.</param>
         public Triangle(double sideA, double sideB, double sideC, IMaterial material) : base(material)
         {
             SideA = sideA;
@@ -19,6 +34,13 @@ namespace Figures
             SideC = sideC;
         }
 
+        /// <summary>
+        /// Cuts new triangle out of figure.
+        /// </summary>
+        /// <param name="sideA">SideA.</param>
+        /// <param name="sideB">SideB.</param>
+        /// <param name="sideC">SideC.</param>
+        /// <param name="figure">Figure.</param>
         public Triangle(double sideA, double sideB, double sideC, Figure figure) : base(figure)
         {
             SideA = sideA;

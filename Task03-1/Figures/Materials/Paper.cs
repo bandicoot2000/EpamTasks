@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Figures
 {
+    /// <summary>
+    /// Material paper.
+    /// </summary>
     public class Paper : IMaterial
     {
 
         private Color color;
+        /// <summary>
+        /// Paper color.
+        /// </summary>
         public  Color Color 
         { 
             get => color; 
@@ -20,6 +22,10 @@ namespace Figures
             } 
         }
 
+        /// <summary>
+        /// Create new paper.
+        /// </summary>
+        /// <param name="color">Color new paper.</param>
         public Paper(Color color = Color.None)
         {
             this.color = color;

@@ -1,16 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Figures
 {
+    /// <summary>
+    /// Figure Polugon.
+    /// </summary>
     public class Polygon : Figure
     {
+        /// <summary>
+        /// Polygone side.
+        /// </summary>
         public double Side { get; private set; }
+        /// <summary>
+        /// Amount sides in polygone.
+        /// </summary>
         public int AmountSides { get; private set; }
 
+        /// <summary>
+        /// Cuts new polygone out of material.  
+        /// </summary>
+        /// <param name="side">Side.</param>
+        /// <param name="amountSides">Amount sides.</param>
+        /// <param name="material">Material.</param>
         public Polygon(double side, int amountSides, IMaterial material) : base(material)
         {
             if (amountSides < 5) throw new Exception("The number of parties must be more than four.");
@@ -18,6 +28,12 @@ namespace Figures
             AmountSides = amountSides;
         }
 
+        /// <summary>
+        /// Cuts new polygone out of fiure.  
+        /// </summary>
+        /// <param name="side">Side.</param>
+        /// <param name="amountSides">Amount sides.</param>
+        /// <param name="figure">Figure.</param>
         public Polygon(double side, int amountSides, Figure figure) : base(figure)
         {
             if (amountSides < 5) throw new Exception("The number of parties must be more than four.");

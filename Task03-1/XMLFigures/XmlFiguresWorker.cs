@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using Figures;
 
 namespace XMLFigures
 {
+    /// <summary>
+    /// Class works with xml files.
+    /// </summary>
     public class XmlFiguresWorker
     {
         private static class WorkerHalper
@@ -60,11 +60,19 @@ namespace XMLFigures
 
         private string file;
 
+        /// <summary>
+        /// Created new XmlFiguresWorker.
+        /// </summary>
+        /// <param name="file">File.</param>
         public XmlFiguresWorker(string file = @"..\..\Figures.xml")
         {
             this.file = file;
         }
 
+        /// <summary>
+        /// Write figures to xml file use XmlWriter.
+        /// </summary>
+        /// <param name="figures">Figures.</param>
         public void XmlFiguresWrite(Figure[] figures)
         {
             XmlWriterSettings settings = new XmlWriterSettings();
@@ -89,6 +97,10 @@ namespace XMLFigures
             }
         }
 
+        /// <summary>
+        /// Write figures to xml file use StreamWriter.
+        /// </summary>
+        /// <param name="figures">Figures.</param>
         public void StreamFiguresWrite(Figure[] figures)
         {
             using (StreamWriter stream = new StreamWriter(file))
@@ -109,6 +121,10 @@ namespace XMLFigures
             }
         }
 
+        /// <summary>
+        /// Read figures from file use XmlReader.
+        /// </summary>
+        /// <returns>Figures.</returns>
         public Figure[] XmlFiguresRead()
         {
             List<Figure> figures = new List<Figure>();
@@ -124,6 +140,10 @@ namespace XMLFigures
             return figures.ToArray();
         }
 
+        /// <summary>
+        /// Read figures from file use StreamReader.
+        /// </summary>
+        /// <returns>Figures.</returns>
         public Figure[] StreamFiguresRead()
         {
             List<Figure> figures = new List<Figure>();

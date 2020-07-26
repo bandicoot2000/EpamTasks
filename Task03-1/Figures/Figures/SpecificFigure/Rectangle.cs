@@ -1,22 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Figures
 {
+    /// <summary>
+    /// Figure rectangle.
+    /// </summary>
     public class Rectangle : Figure
     {
+        /// <summary>
+        /// Length rectangle.
+        /// </summary>
         public double Length { get; private set; }
+        /// <summary>
+        /// Width rectangle.
+        /// </summary>
         public double Width { get; private set; }
 
+        /// <summary>
+        /// Cuts new rectangle out of material.  
+        /// </summary>
+        /// <param name="length">Length.</param>
+        /// <param name="width">Width.</param>
+        /// <param name="material">Material.</param>
         public Rectangle(double length, double width, IMaterial material) : base(material)
         {
             Length = length;
             Width = width;
         }
 
+        /// <summary>
+        /// Cuts new rectangle out of figure.  
+        /// </summary>
+        /// <param name="length">Length.</param>
+        /// <param name="width">Width.</param>
+        /// <param name="figure">Figure.</param>
         public Rectangle(double length, double width, Figure figure) : base(figure)
         {
             Length = length;

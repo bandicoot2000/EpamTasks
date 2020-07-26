@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Figures;
-using XMLFigures();
+using XMLFigures;
 
 namespace Boxes
 {
+    /// <summary>
+    /// Box with 20 figures.
+    /// </summary>
     public class Box
     {
         private IMaterial[] figures;
@@ -21,6 +20,10 @@ namespace Boxes
                 else XmlFiguresWorker = new XmlFiguresWorker();
         }
 
+        /// <summary>
+        /// Add new figure.
+        /// </summary>
+        /// <param name="figure">Figure.</param>
         public void AddFigure(Figure figure)
         {
             int i = 0;
@@ -32,11 +35,21 @@ namespace Boxes
             figures[i] = figure;
         }
 
+        /// <summary>
+        /// Look figure in box.
+        /// </summary>
+        /// <param name="index">Index figure.</param>
+        /// <returns>Figure.</returns>
         public Figure LookFigure(int index)
         {
             return figures[index] == null ? null : (Figure)figures[index];
         }
 
+        /// <summary>
+        /// Extract figure from box.
+        /// </summary>
+        /// <param name="index">Index figure.</param>
+        /// <returns>Figure.</returns>
         public Figure ExtractFigure(int index)
         {
             Figure figure = LookFigure(index);
@@ -44,11 +57,21 @@ namespace Boxes
             return figure;
         }
 
+        /// <summary>
+        /// Replace figures in box.
+        /// </summary>
+        /// <param name="figure">Figure.</param>
+        /// <param name="index">Index figure.</param>
         public void Replace(Figure figure, int index)
         {
             figures[index] = figure;
         }
 
+        /// <summary>
+        /// Find figure in box.
+        /// </summary>
+        /// <param name="figure">Figure.</param>
+        /// <returns>Figure.</returns>
         public int FindFigure(Figure figure)
         {
             for (int i = 0; i < figures.Length; i++)
@@ -58,6 +81,10 @@ namespace Boxes
             return -1;
         }
 
+        /// <summary>
+        /// Count figures in box.
+        /// </summary>
+        /// <returns>Count figures.</returns>
         public int CountFigures()
         {
             int result = 0;
@@ -68,6 +95,10 @@ namespace Boxes
             return result;
         }
 
+        /// <summary>
+        /// Calculation total perimeter figures.
+        /// </summary>
+        /// <returns>Tatal perimeter.</returns>
         public double GetTotalArea()
         {
             double result = 0;
@@ -78,6 +109,10 @@ namespace Boxes
             return result;
         }
 
+        /// <summary>
+        /// Calculation total area figures.
+        /// </summary>
+        /// <returns>Total area.</returns>
         public double GetTotalPerimeter()
         {
             double result = 0;
@@ -88,6 +123,10 @@ namespace Boxes
             return result;
         }
 
+        /// <summary>
+        /// Get all circle in box.
+        /// </summary>
+        /// <returns>Circles.</returns>
         public Circle[] GetAllCircles()
         {
             List<Circle> circles = new List<Circle>();
@@ -102,6 +141,10 @@ namespace Boxes
             return circles.ToArray();
         }
 
+        /// <summary>
+        /// Get all film figures.
+        /// </summary>
+        /// <returns>Film figures.</returns>
         public Figure[] GetAllFilmFigures()
         {
             List<Figure> figures = new List<Figure>();
@@ -116,6 +159,7 @@ namespace Boxes
             return figures.ToArray();
         }
 
+
         private Figure[] GetAllFigures()
         {
             List<Figure> figures = new List<Figure>();
@@ -126,11 +170,17 @@ namespace Boxes
             return figures.ToArray();
         }
 
+        /// <summary>
+        /// Save all figures xmlWriter.
+        /// </summary>
         public void SaveAllFiguresXml()
         {
             XmlFiguresWorker.XmlFiguresWrite(GetAllFigures());
         }
 
+        /// <summary>
+        /// Save film figures xmlWriter.
+        /// </summary>
         public void SaveFilmFiguresXml()
         {
             Figure[] figures = GetAllFigures();
@@ -142,6 +192,9 @@ namespace Boxes
             XmlFiguresWorker.XmlFiguresWrite(filmFigures.ToArray());
         }
 
+        /// <summary>
+        /// Save paper figures xmlWriter.
+        /// </summary>
         public void SavePaperFiguresXml()
         {
             Figure[] figures = GetAllFigures();
@@ -153,11 +206,17 @@ namespace Boxes
             XmlFiguresWorker.XmlFiguresWrite(filmFigures.ToArray());
         }
 
+        /// <summary>
+        /// Save all figures streamWriter.
+        /// </summary>
         public void SaveAllFiguresStream()
         {
             XmlFiguresWorker.StreamFiguresWrite(GetAllFigures());
         }
 
+        /// <summary>
+        /// Save film figures streamWriter.
+        /// </summary>
         public void SaveFilmFiguresStream()
         {
             Figure[] figures = GetAllFigures();
@@ -169,6 +228,9 @@ namespace Boxes
             XmlFiguresWorker.StreamFiguresWrite(filmFigures.ToArray());
         }
 
+        /// <summary>
+        /// Save paper figures streamWriter.
+        /// </summary>
         public void SavePaperFiguresStream()
         {
             Figure[] figures = GetAllFigures();
@@ -180,6 +242,9 @@ namespace Boxes
             XmlFiguresWorker.StreamFiguresWrite(filmFigures.ToArray());
         }
         
+        /// <summary>
+        /// Load figures xmlReader.
+        /// </summary>
         public void LoadFiguresXml()
         {
             figures = new IMaterial[20];
@@ -190,6 +255,9 @@ namespace Boxes
             }
         }
 
+        /// <summary>
+        /// Load figures streamReader.
+        /// </summary>
         public void LoadFiguresStream()
         {
             figures = new IMaterial[20];

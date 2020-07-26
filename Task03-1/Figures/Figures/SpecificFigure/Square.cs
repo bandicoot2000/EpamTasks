@@ -1,19 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Figures
 {
+    /// <summary>
+    /// Figure square.
+    /// </summary>
     public class Square : Figure
     {
+        /// <summary>
+        /// Square side.
+        /// </summary>
         public double Side { get; private set; }
+
+        /// <summary>
+        /// Cuts new square out of material.  
+        /// </summary>
+        /// <param name="side">Side.</param>
+        /// <param name="material">Material.</param>
         public Square(double side, IMaterial material) : base(material)
         {
             Side = side;
         }
 
+        /// <summary>
+        /// Cuts new square out of figure.  
+        /// </summary>
+        /// <param name="side">Side.</param>
+        /// <param name="figure">Figure.</param>
         public Square(double side, Figure figure) : base(figure)
         {
             Side = side;
