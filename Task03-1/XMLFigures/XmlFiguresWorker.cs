@@ -109,7 +109,7 @@ namespace XMLFigures
             }
         }
 
-        public Figure[] XmlReadFigures()
+        public Figure[] XmlFiguresRead()
         {
             List<Figure> figures = new List<Figure>();
             using(XmlReader xml = XmlReader.Create(file))
@@ -124,7 +124,7 @@ namespace XMLFigures
             return figures.ToArray();
         }
 
-        public Figure[] StreamReadFigures()
+        public Figure[] StreamFiguresRead()
         {
             List<Figure> figures = new List<Figure>();
             using (StreamReader stream = new StreamReader(file))

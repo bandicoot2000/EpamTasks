@@ -46,5 +46,15 @@
     <Compile Include="Box.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Figures\Figures.csproj">
+      <Project>{fb64f15f-99a1-4b27-a1ef-21d962604b3a}</Project>
+      <Name>Figures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XMLFigures\XMLFigures.csproj">
+      <Project>{3e25a943-b261-4bb0-a706-f6249509eddf}</Project>
+      <Name>XMLFigures</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
