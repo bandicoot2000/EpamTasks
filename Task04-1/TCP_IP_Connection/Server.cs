@@ -12,9 +12,8 @@ namespace TCP_IP_Connection
     {
         private TcpListener tcpServer;
 
-
-        public delegate void MassageHandler(string massage);
-        public event MassageHandler MassageEvent;
+        public delegate void MassageHandlerServer(string massage, string clientName);
+        public event MassageHandlerServer ReceivingMessage;
 
         public Server(string server, int port)
         {
@@ -22,46 +21,38 @@ namespace TCP_IP_Connection
             tcpServer.Start();
         }
 
-        public void ReadMassage()
+        public string ReadMassage()
         {
-            try
+            TcpClient client = tcpServer.AcceptTcpClient();
+           
+            byte[] data = new byte[256];
+            StringBuilder massageBuild = new StringBuilder();
+            NetworkStream stream = client.GetStream();
+
+            do
             {
-                TcpClient client = tcpServer.AcceptTcpClient();
-                byte[] data = new byte[256];
-                StringBuilder massage = new StringBuilder();
-                NetworkStream stream = client.GetStream();
-
-                do
-                {
-                    int bytes = stream.Read(data, 0, data.Length);
-                    massage.Append(Encoding.UTF8.GetString(data, 0, bytes));
-                }
-                while (stream.DataAvailable);
-
-                stream.Close();
-                client.Close();
+                int bytes = stream.Read(data, 0, data.Length);
+                massageBuild.Append(Encoding.UTF8.GetString(data, 0, bytes));
             }
-            catch(Exception e)
-            {
+            while (stream.DataAvailable);
 
-            }
+            string[] massage = massageBuild.ToString().Split(new string[] { " // " }, StringSplitOptions.RemoveEmptyEntries);
+
+            ReceivingMessage(massage[0], massage[1]);
+
+            stream.Close();
+            client.Close();
+            return massage[0];
         }
 
         public void WriteMassage(string massage)
         {
-            try
-            {
-                TcpClient client = tcpServer.AcceptTcpClient();
-                NetworkStream stream = client.GetStream();
-                byte[] data = Encoding.UTF8.GetBytes(massage);
-                stream.Write(data, 0, data.Length);
-                stream.Close();
-                client.Close();
-            }
-            catch(Exception e)
-            {
-
-            }
+            TcpClient client = tcpServer.AcceptTcpClient();
+            NetworkStream stream = client.GetStream();
+            byte[] data = Encoding.UTF8.GetBytes(massage);
+            stream.Write(data, 0, data.Length);
+            stream.Close();
+            client.Close();
         }
 
         public void Close()
