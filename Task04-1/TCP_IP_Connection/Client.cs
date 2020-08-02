@@ -1,23 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace TCP_IP_Connection
 {
+    /// <summary>
+    /// Client TCP/IP.
+    /// </summary>
     public class Client
     {
         private TcpClient tcpClient;
         private string server;
         private int port;
 
-        public delegate void MassageHandler(ref string massage);
-        public event MassageHandler ReceivingMessage; 
+        /// <summary>
+        /// Massage handler.
+        /// </summary>
+        /// <param name="massage">Massage.</param>
+        public delegate void MassageHandlerClient(ref string massage);
+        /// <summary>
+        /// Processes a received message.
+        /// </summary>
+        public event MassageHandlerClient ReceivingMessage; 
 
+        /// <summary>
+        /// Client name.
+        /// </summary>
         public string Name { get; private set; }
 
+        /// <summary>
+        /// Constructor 
+        /// </summary>
+        /// <param name="server">Ip.</param>
+        /// <param name="port">Port.</param>
+        /// <param name="name">Name.</param>
         public Client(string server, int port, string name)
         {
             this.server = server;
@@ -25,6 +41,10 @@ namespace TCP_IP_Connection
             Name = name;
         }
 
+        /// <summary>
+        /// Read massage from server.
+        /// </summary>
+        /// <returns>Massage.</returns>
         public string ReadMassage()
         {
             tcpClient = new TcpClient();
@@ -52,6 +72,10 @@ namespace TCP_IP_Connection
             return massage;
         }
 
+        /// <summary>
+        /// Write massage to server.
+        /// </summary>
+        /// <param name="massage">Massage.</param>
         public void WriteMassage(string massage)
         {
             tcpClient = new TcpClient();

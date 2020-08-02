@@ -3,6 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace TCP_IP_Connection
 {
+    /// <summary>
+    /// Convert message language. 
+    /// </summary>
     public static class ClientConverter
     {
         private static Dictionary<string, string> transliterationTable = new Dictionary<string, string>
@@ -42,6 +45,10 @@ namespace TCP_IP_Connection
             ["э"] = "e'"
         };
 
+        /// <summary>
+        /// Convert massage language Rus to Eng, Eng to Rus.
+        /// </summary>
+        /// <param name="massage">Massage.</param>
         public static void ConvertMassage(ref string massage)
         {
             int amountLetters = 0;

@@ -1,26 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace TCP_IP_Connection
 {
+    /// <summary>
+    /// Server TCP/IP.
+    /// </summary>
     public class Server
     {
         private TcpListener tcpServer;
 
+        /// <summary>
+        /// Massage handler.
+        /// </summary>
+        /// <param name="massage">Massage.</param>
+        /// <param name="clientName">Client name.</param>
         public delegate void MassageHandlerServer(string massage, string clientName);
+
+        /// <summary>
+        /// Processes a received message.
+        /// </summary>
         public event MassageHandlerServer ReceivingMessage;
 
+        /// <summary>
+        /// Constructor Server.
+        /// </summary>
+        /// <param name="server">Ip.</param>
+        /// <param name="port">Port.</param>
         public Server(string server, int port)
         {
             tcpServer = new TcpListener(IPAddress.Parse(server), port);
             tcpServer.Start();
         }
 
+        /// <summary>
+        /// Read massage from clients.
+        /// </summary>
+        /// <returns>Massage.</returns>
         public string ReadMassage()
         {
             TcpClient client = tcpServer.AcceptTcpClient();
@@ -45,6 +63,10 @@ namespace TCP_IP_Connection
             return massage[0];
         }
 
+        /// <summary>
+        /// Write massage to clients.
+        /// </summary>
+        /// <param name="massage">Massage.</param>
         public void WriteMassage(string massage)
         {
             TcpClient client = tcpServer.AcceptTcpClient();
@@ -55,6 +77,9 @@ namespace TCP_IP_Connection
             client.Close();
         }
 
+        /// <summary>
+        /// Close server.
+        /// </summary>
         public void Close()
         {
             tcpServer.Stop();
