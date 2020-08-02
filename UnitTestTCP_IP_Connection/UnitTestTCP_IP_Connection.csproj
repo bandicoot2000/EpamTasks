@@ -52,7 +52,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTestClient.cs" />
+    <Compile Include="TestClientServer.cs" />
+    <Compile Include="TestClientConverter.cs" />
+    <Compile Include="TestServerStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

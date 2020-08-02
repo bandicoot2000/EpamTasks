@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace TCP_IP_Connection
 {
@@ -11,14 +7,19 @@ namespace TCP_IP_Connection
     {
         private static Dictionary<string, string> transliterationTable = new Dictionary<string, string>
         {
+            ["щ"] = "shh",
+            ["ч"] = "ch",
+            ["ш"] = "sh",
+            ["ю"] = "yu",
+            ["я"] = "ya",
+            ["ё"] = "yo",
+            ["ж"] = "zh",
             ["а"] = "a",
             ["б"] = "b",
             ["в"] = "v",
             ["г"] = "g",
             ["д"] = "d",
             ["е"] = "e",
-            ["ё"] = "yo",
-            ["ж"] = "zh",
             ["з"] = "z",
             ["и"] = "i",
             ["й"] = "j",
@@ -35,15 +36,10 @@ namespace TCP_IP_Connection
             ["ф"] = "f",
             ["х"] = "x",
             ["ц"] = "c",
-            ["ч"] = "ch",
-            ["ш"] = "sh",
-            ["щ"] = "shh",
             ["ъ"] = "``",
             ["ы"] = "a",
             ["ь"] = "`",
-            ["э"] = "e'",
-            ["ю"] = "yu",
-            ["я"] = "ya"
+            ["э"] = "e'"
         };
 
         public static void ConvertMassage(ref string massage)
@@ -59,17 +55,17 @@ namespace TCP_IP_Connection
                 }
             }
             if (amountLetters / 2 < amountEngLetters)
-                massage = MassageToEng(massage);
-            else
                 massage = MassageToRus(massage);
+            else
+                massage = MassageToEng(massage);
         }
 
         private static string MassageToRus(string massage)
         {
             foreach (var pattern in transliterationTable)
             {
-                Regex.Replace(massage, pattern.Value, pattern.Key);
-                Regex.Replace(massage, pattern.Value.ToUpper(), pattern.Key.ToUpper());
+                massage = Regex.Replace(massage, pattern.Value, pattern.Key);
+                massage = Regex.Replace(massage, pattern.Value.ToUpper(), pattern.Key.ToUpper());
             }
             return massage;
         }
@@ -78,8 +74,8 @@ namespace TCP_IP_Connection
         {
             foreach (var pattern in transliterationTable)
             {
-                Regex.Replace(massage, pattern.Key, pattern.Value); 
-                Regex.Replace(massage, pattern.Key.ToUpper(), pattern.Value.ToUpper());
+                massage = Regex.Replace(massage, pattern.Key, pattern.Value);
+                massage = Regex.Replace(massage, pattern.Key.ToUpper(), pattern.Value.ToUpper());
             }
             return massage;
         }
