@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataStorage
 {
-    internal class BinaryTreeNode
+    public enum Side
     {
+        Left,
+        Right
     }
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<BinaryTreeOfInt32 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RootNode>
+    <Data>4</Data>
+    <LeftNode>
+      <Data>2</Data>
+      <LeftNode>
+        <Data>1</Data>
+      </LeftNode>
+      <RightNode>
+        <Data>3</Data>
+      </RightNode>
+    </LeftNode>
+    <RightNode>
+      <Data>6</Data>
+      <LeftNode>
+        <Data>5</Data>
+      </LeftNode>
+      <RightNode>
+        <Data>7</Data>
+      </RightNode>
+    </RightNode>
+  </RootNode>
+</BinaryTreeOfInt32>
