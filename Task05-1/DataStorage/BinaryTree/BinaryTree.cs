@@ -10,15 +10,30 @@ using System.Xml.Serialization;
 
 namespace DataStorage
 {
+    /// <summary>
+    /// Binary tree.
+    /// </summary>
+    /// <typeparam name="T">Type tree data.</typeparam>
     [Serializable]
     public class BinaryTree<T> where T : IComparable
     {
+        /// <summary>
+        /// Create binary tree.
+        /// </summary>
         public BinaryTree()
         {
             RootNode = null;
         }
-
+        /// <summary>
+        /// Root node.
+        /// </summary>
         public BinaryTreeNode<T> RootNode { get; set; }
+        /// <summary>
+        /// Add new node in tree.
+        /// </summary>
+        /// <param name="node">Node.</param>
+        /// <param name="currentNode">Current node.</param>
+        /// <returns>This node in tree.</returns>
         public BinaryTreeNode<T> Add(BinaryTreeNode<T> node, BinaryTreeNode<T> currentNode = null)
         {
             if (RootNode == null)
@@ -56,12 +71,21 @@ namespace DataStorage
                 }
             }
         }
-
+        /// <summary>
+        /// Add new node in tree.
+        /// </summary>
+        /// <param name="data">Data.</param>
+        /// <returns>This node in tree.</returns>
         public BinaryTreeNode<T> Add(T data)
         {
             return Add(new BinaryTreeNode<T>(data));
         }
-
+        /// <summary>
+        /// Find node in tree.
+        /// </summary>
+        /// <param name="data">Data.</param>
+        /// <param name="startWithNode">Start node.</param>
+        /// <returns>This node in tree.</returns>
         public BinaryTreeNode<T> FindNode(T data, BinaryTreeNode<T> startWithNode = null)
         {
             startWithNode = startWithNode ?? RootNode;
@@ -79,6 +103,10 @@ namespace DataStorage
             }
         }
 
+        /// <summary>
+        /// Remove node from tree.
+        /// </summary>
+        /// <param name="node">Node.</param>
         public void Remove(BinaryTreeNode<T> node)
         {
             if (node == null) return;
@@ -130,13 +158,19 @@ namespace DataStorage
                 }
             }
         }
-
+        /// <summary>
+        /// Remove node from tree.
+        /// </summary>
+        /// <param name="data">Data.</param>
         public void Remove(T data)
         {
             var foundNode = FindNode(data);
             Remove(foundNode);
         }
 
+        /// <summary>
+        /// Balansing tree.
+        /// </summary>
         public void BalancingTree()
         {
             List<T> listNodes = RootNode.ToList();
@@ -156,17 +190,42 @@ namespace DataStorage
             }   
         }
 
+        /// <summary>
+        /// Repair tree link.
+        /// </summary>
+        public void Repair()
+        {
+            List<T> listNodes = RootNode.ToList();
+            RootNode = null;
+            foreach (var node in listNodes)
+            {
+                Add(node);
+            }
+        }
+
+        /// <summary>
+        /// Determines whether two objects are equal.
+        /// </summary>
+        /// <param name="obj">Object.</param>
+        /// <returns>Result.</returns>
         public override bool Equals(object obj)
         {
             return obj is BinaryTree<T> tree &&
                    EqualityComparer<BinaryTreeNode<T>>.Default.Equals(RootNode, tree.RootNode);
         }
 
+        /// <summary>
+        /// Get object hash code.
+        /// </summary>
+        /// <returns>Hash code.</returns>
         public override int GetHashCode()
         {
             return -120845931 + EqualityComparer<BinaryTreeNode<T>>.Default.GetHashCode(RootNode);
         }
-
+        /// <summary>
+        /// Convert object to string.
+        /// </summary>
+        /// <returns>Result.</returns>
         public override string ToString()
         {
             return RootNode.ToString();

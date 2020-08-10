@@ -1,24 +1,59 @@
 <?xml version="1.0"?>
-<BinaryTreeOfInt32 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<BinaryTreeOfStudentTest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <RootNode>
-    <Data>4</Data>
+    <Data>
+      <StudentName>Student</StudentName>
+      <TestName>Test</TestName>
+      <TestDate>0010-10-10T00:00:00</TestDate>
+      <TestScore>4</TestScore>
+    </Data>
     <LeftNode>
-      <Data>2</Data>
+      <Data>
+        <StudentName>Student</StudentName>
+        <TestName>Test</TestName>
+        <TestDate>0010-10-10T00:00:00</TestDate>
+        <TestScore>2</TestScore>
+      </Data>
       <LeftNode>
-        <Data>1</Data>
+        <Data>
+          <StudentName>Student</StudentName>
+          <TestName>Test</TestName>
+          <TestDate>0010-10-10T00:00:00</TestDate>
+          <TestScore>1</TestScore>
+        </Data>
       </LeftNode>
       <RightNode>
-        <Data>3</Data>
+        <Data>
+          <StudentName>Student</StudentName>
+          <TestName>Test</TestName>
+          <TestDate>0010-10-10T00:00:00</TestDate>
+          <TestScore>3</TestScore>
+        </Data>
       </RightNode>
     </LeftNode>
     <RightNode>
-      <Data>6</Data>
+      <Data>
+        <StudentName>Student</StudentName>
+        <TestName>Test</TestName>
+        <TestDate>0010-10-10T00:00:00</TestDate>
+        <TestScore>6</TestScore>
+      </Data>
       <LeftNode>
-        <Data>5</Data>
+        <Data>
+          <StudentName>Student</StudentName>
+          <TestName>Test</TestName>
+          <TestDate>0010-10-10T00:00:00</TestDate>
+          <TestScore>5</TestScore>
+        </Data>
       </LeftNode>
       <RightNode>
-        <Data>7</Data>
+        <Data>
+          <StudentName>Student</StudentName>
+          <TestName>Test</TestName>
+          <TestDate>0010-10-10T00:00:00</TestDate>
+          <TestScore>7</TestScore>
+        </Data>
       </RightNode>
     </RightNode>
   </RootNode>
-</BinaryTreeOfInt32>
+</BinaryTreeOfStudentTest>

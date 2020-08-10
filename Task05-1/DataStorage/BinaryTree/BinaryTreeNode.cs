@@ -10,28 +10,51 @@ using System.Xml.Serialization;
 
 namespace DataStorage
 {
+    /// <summary>
+    /// Binary tree node. 
+    /// </summary>
+    /// <typeparam name="T">Type of node data</typeparam>
     [Serializable]
     public class BinaryTreeNode<T> where T : IComparable
     {
+        /// <summary>
+        /// Data node.
+        /// </summary>
         public T Data { get; set; }
-
+        /// <summary>
+        /// Left node.
+        /// </summary>
         public BinaryTreeNode<T> LeftNode { get; set; }
-
+        /// <summary>
+        /// Right node.
+        /// </summary>
         public BinaryTreeNode<T> RightNode { get; set; }
-
+        /// <summary>
+        /// Node parant.
+        /// </summary>
         [XmlIgnore]
         public BinaryTreeNode<T> ParentNode { get; set; }
 
+        /// <summary>
+        /// Create node.
+        /// </summary>
+        /// <param name="data">Node data.</param>
         public BinaryTreeNode(T data = default(T))
         {
             Data = data;
         }
-
+        /// <summary>
+        /// Create node.
+        /// </summary>
         public BinaryTreeNode()
         {
             Data = default(T);
         }
 
+        /// <summary>
+        /// Convert node to list.
+        /// </summary>
+        /// <returns>List nodes.</returns>
         public List<T> ToList()
         {
             List<T> listNodes = new List<T>();
@@ -40,7 +63,9 @@ namespace DataStorage
             if (RightNode != null) listNodes.AddRange(RightNode.ToList());
             return listNodes;
         }
-
+        /// <summary>
+        /// Return node side.
+        /// </summary>
         public Side? NodeSide
         {
             get
@@ -51,6 +76,11 @@ namespace DataStorage
             }
         }
 
+        /// <summary>
+        /// Determines whether two objects are equal.
+        /// </summary>
+        /// <param name="obj">Object.</param>
+        /// <returns>Result.</returns>
         public override bool Equals(object obj)
         {
             return obj is BinaryTreeNode<T> node &&
@@ -59,7 +89,10 @@ namespace DataStorage
                    EqualityComparer<BinaryTreeNode<T>>.Default.Equals(RightNode, node.RightNode) &&
                    NodeSide == node.NodeSide;
         }
-
+        /// <summary>
+        /// Get object hash code.
+        /// </summary>
+        /// <returns>Hash code.</returns>
         public override int GetHashCode()
         {
             int hashCode = 1235913921;
@@ -70,6 +103,10 @@ namespace DataStorage
             return hashCode;
         }
 
+        /// <summary>
+        /// Convert object to string.
+        /// </summary>
+        /// <returns>Result.</returns>
         public override string ToString()
         {
             return "{" + ((LeftNode != null) ? LeftNode.ToString() : "") + 

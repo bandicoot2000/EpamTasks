@@ -3,13 +3,36 @@ using System.Collections.Generic;
 
 namespace Students
 {
+    /// <summary>
+    /// Student test data.
+    /// </summary>
+    [Serializable]
     public class StudentTest : IComparable
     {
-        public string StudentName { get; private set; }
-        public string TestName { get; private set; }
-        public DateTime TestDate { get; private set; }
-        public int TestScore { get; private set; }
+        /// <summary>
+        /// Student name.
+        /// </summary>
+        public string StudentName { get; set; }
+        /// <summary>
+        /// Test name.
+        /// </summary>
+        public string TestName { get; set; }
+        /// <summary>
+        /// Test date.
+        /// </summary>
+        public DateTime TestDate { get; set; }
+        /// <summary>
+        /// Test score.
+        /// </summary>
+        public int TestScore { get; set; }
 
+        /// <summary>
+        /// Create student test.
+        /// </summary>
+        /// <param name="studentName">Student name.</param>
+        /// <param name="testName">Test name.</param>
+        /// <param name="testDate">Test date.</param>
+        /// <param name="testScore">Test score.</param>
         public StudentTest(string studentName, string testName, DateTime testDate, int testScore)
         {
             StudentName = studentName;
@@ -18,6 +41,21 @@ namespace Students
             TestScore = testScore;
         }
 
+        /// <summary>
+        /// Create student test.
+        /// </summary>
+        public StudentTest()
+        {
+            StudentName = null;
+            TestName = null;
+            TestDate = default(DateTime);
+            TestScore = 0;
+        }
+        /// <summary>
+        /// Compare to object.
+        /// </summary>
+        /// <param name="obj">Object.</param>
+        /// <returns>Result.</returns>
         public int CompareTo(object obj)
         {
             if (obj is StudentTest)
@@ -26,6 +64,11 @@ namespace Students
                 throw new ArgumentException("The object must have the type StudentTest.");
         }
 
+        /// <summary>
+        /// Determines whether two objects are equal.
+        /// </summary>
+        /// <param name="obj">Object.</param>
+        /// <returns>Result.</returns>
         public override bool Equals(object obj)
         {
             return obj is StudentTest test &&
@@ -34,7 +77,10 @@ namespace Students
                    TestDate == test.TestDate &&
                    TestScore == test.TestScore;
         }
-
+        /// <summary>
+        /// Get object hash code.
+        /// </summary>
+        /// <returns>Hash code.</returns>
         public override int GetHashCode()
         {
             int hashCode = 369593031;
@@ -44,7 +90,10 @@ namespace Students
             hashCode = hashCode * -1521134295 + TestScore.GetHashCode();
             return hashCode;
         }
-
+        /// <summary>
+        /// Convert object to string.
+        /// </summary>
+        /// <returns>Result.</returns>
         public override string ToString()
         {
             return StudentName + " " + TestName + " " + TestDate.ToString() + " " + TestScore;

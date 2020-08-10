@@ -6,9 +6,18 @@ using System.Threading.Tasks;
 
 namespace DataStorage
 {
+    /// <summary>
+    /// Side of the binary tree.
+    /// </summary>
     public enum Side
     {
+        /// <summary>
+        /// Left side.
+        /// </summary>
         Left,
+        /// <summary>
+        /// Right side.
+        /// </summary>
         Right
     }
 }
