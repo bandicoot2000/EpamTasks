@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<StudentTestISerializable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StudentName>Name</StudentName>
+  <TestName>Test</TestName>
+  <TestDate>2020-08-11T14:55:58.4770128+03:00</TestDate>
+  <TestScore>10</TestScore>
+</StudentTestISerializable>

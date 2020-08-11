@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ArrayOfStudentTestISerializable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StudentTestISerializable>
+    <StudentName>Name5</StudentName>
+    <TestName>Test1</TestName>
+    <TestDate>2020-08-11T14:55:58.5178781+03:00</TestDate>
+    <TestScore>10</TestScore>
+  </StudentTestISerializable>
+  <StudentTestISerializable>
+    <StudentName>Name4</StudentName>
+    <TestName>Test2</TestName>
+    <TestDate>2020-08-11T14:55:58.5178781+03:00</TestDate>
+    <TestScore>6</TestScore>
+  </StudentTestISerializable>
+  <StudentTestISerializable>
+    <StudentName>Name3</StudentName>
+    <TestName>Test3</TestName>
+    <TestDate>2020-08-11T14:55:58.5178781+03:00</TestDate>
+    <TestScore>5</TestScore>
+  </StudentTestISerializable>
+  <StudentTestISerializable>
+    <StudentName>Name2</StudentName>
+    <TestName>Test4</TestName>
+    <TestDate>2020-08-11T14:55:58.5178781+03:00</TestDate>
+    <TestScore>8</TestScore>
+  </StudentTestISerializable>
+  <StudentTestISerializable>
+    <StudentName>Name1</StudentName>
+    <TestName>Test5</TestName>
+    <TestDate>2020-08-11T14:55:58.5178781+03:00</TestDate>
+    <TestScore>9</TestScore>
+  </StudentTestISerializable>
+</ArrayOfStudentTestISerializable>
