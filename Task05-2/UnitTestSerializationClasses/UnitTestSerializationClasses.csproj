@@ -57,8 +57,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ISerializeClasses\ISerializeClasses.csproj">
-      <Project>{9b11f5e7-ead2-41f1-8c31-521254dc0c33}</Project>
+    <ProjectReference Include="..\ISerializeClasses\ISerializeClasses.csproj">
+      <Project>{1b9b35ed-db52-4ada-8512-db36e0c5ea42}</Project>
       <Name>ISerializeClasses</Name>
     </ProjectReference>
     <ProjectReference Include="..\SerializationClasses\SerializationClasses.csproj">
