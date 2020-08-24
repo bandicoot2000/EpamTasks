@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace DBRecordingGrades
 {
-    public class Class1
+    public enum DataBaseType
     {
+        /// <summary>
+        /// MS SQL Server.
+        /// </summary>
+        MSSQL
     }
 }
