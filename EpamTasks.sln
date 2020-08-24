@@ -3,9 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task06", "Task06", "{0A5D7828-26EB-44F9-BC69-6CC080BBC89F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task06-1", "Task06-1", "{06D8DBEA-ECB1-4FEC-823C-B9989D9FF9B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBRecordingGrades", "Task06-1\DBRecordingGrades\DBRecordingGrades.csproj", "{A0B2D3E0-348E-479D-911D-AF60E47643B4}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0B2D3E0-348E-479D-911D-AF60E47643B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0B2D3E0-348E-479D-911D-AF60E47643B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0B2D3E0-348E-479D-911D-AF60E47643B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0B2D3E0-348E-479D-911D-AF60E47643B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A0B2D3E0-348E-479D-911D-AF60E47643B4} = {06D8DBEA-ECB1-4FEC-823C-B9989D9FF9B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BE7BBF32-AC01-427C-A2D6-FF80D4717C49}
