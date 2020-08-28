@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DBRecordingGrades
 {
-    interface IPassSubjects
+    public interface IPassSubjects
     {
         bool Insert(PassSubjects passSubject);
-        bool Update(PassSubjects oldPassSubject, Groups newPassSubject);
+        bool Update(PassSubjects oldPassSubject, PassSubjects newPassSubject);
         bool Delete(PassSubjects passSubject);
         PassSubjects[] GetAllPassSubjects();
     }

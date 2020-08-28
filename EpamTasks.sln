@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task06-1", "Task06-1", "{06
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBRecordingGrades", "Task06-1\DBRecordingGrades\DBRecordingGrades.csproj", "{A0B2D3E0-348E-479D-911D-AF60E47643B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestDBRecordingGrades", "UnitTestDBRecordingGrades\UnitTestDBRecordingGrades.csproj", "{49FB6A58-660F-439D-ACD4-A300ABD5339A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,12 +21,17 @@ Global
 		{A0B2D3E0-348E-479D-911D-AF60E47643B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0B2D3E0-348E-479D-911D-AF60E47643B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0B2D3E0-348E-479D-911D-AF60E47643B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49FB6A58-660F-439D-ACD4-A300ABD5339A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49FB6A58-660F-439D-ACD4-A300ABD5339A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49FB6A58-660F-439D-ACD4-A300ABD5339A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49FB6A58-660F-439D-ACD4-A300ABD5339A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A0B2D3E0-348E-479D-911D-AF60E47643B4} = {06D8DBEA-ECB1-4FEC-823C-B9989D9FF9B0}
+		{49FB6A58-660F-439D-ACD4-A300ABD5339A} = {06D8DBEA-ECB1-4FEC-823C-B9989D9FF9B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BE7BBF32-AC01-427C-A2D6-FF80D4717C49}

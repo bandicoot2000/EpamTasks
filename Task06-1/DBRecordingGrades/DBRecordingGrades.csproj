@@ -41,22 +41,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssessmentForms.cs" />
-    <Compile Include="DataBaseType.cs" />
-    <Compile Include="Grades.cs" />
-    <Compile Include="Groups.cs" />
-    <Compile Include="IAssessmentForms.cs" />
-    <Compile Include="IGrades.cs" />
-    <Compile Include="IGroups.cs" />
-    <Compile Include="IPassSubjects.cs" />
-    <Compile Include="ISessionTypes.cs" />
-    <Compile Include="IStudents.cs" />
-    <Compile Include="ISubjects.cs" />
-    <Compile Include="PassSubjects.cs" />
-    <Compile Include="SessionTypes.cs" />
-    <Compile Include="Students.cs" />
-    <Compile Include="Subjects.cs" />
-    <Compile Include="СonnectionFactory.cs" />
+    <Compile Include="DataBase\MSQL\MSQLAssessmentForms.cs" />
+    <Compile Include="DataBase\MSQL\MSQLGrades.cs" />
+    <Compile Include="DataBase\MSQL\MSQLStudents.cs" />
+    <Compile Include="DBClasses\AssessmentForms.cs" />
+    <Compile Include="DataBase\DataBaseType.cs" />
+    <Compile Include="DBClasses\Grades.cs" />
+    <Compile Include="DBClasses\Groups.cs" />
+    <Compile Include="DataBase\IAssessmentForms.cs" />
+    <Compile Include="DataBase\IGrades.cs" />
+    <Compile Include="DataBase\IGroups.cs" />
+    <Compile Include="DataBase\IPassSubjects.cs" />
+    <Compile Include="DataBase\ISessionTypes.cs" />
+    <Compile Include="DataBase\IStudents.cs" />
+    <Compile Include="DataBase\ISubjects.cs" />
+    <Compile Include="DBClasses\PassSubjects.cs" />
+    <Compile Include="DBClasses\SessionTypes.cs" />
+    <Compile Include="DBClasses\Students.cs" />
+    <Compile Include="DBClasses\Subjects.cs" />
+    <Compile Include="DataBase\СonnectionFactory.cs" />
+    <Compile Include="DataBase\MSQL\MSQLSessionTypes.cs" />
+    <Compile Include="DataBase\MSQL\MSQLSubjects.cs" />
+    <Compile Include="DataBase\MSQL\MSQLGroups.cs" />
+    <Compile Include="DataBase\MSQL\MSQLPassSubjects.cs" />
+    <Compile Include="MSQLСonnectionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
