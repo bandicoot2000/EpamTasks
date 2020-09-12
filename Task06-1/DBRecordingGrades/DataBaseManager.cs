@@ -21,8 +21,8 @@ namespace DBRecordingGrades
         /// <returns>Successful completion method.</returns>
         public static bool DBInitialize(string connectStringInit)
         {
-            const string DB_DROP = "IF DB_ID(N'AcademicYear2020') IS NOT NULL DROP DATABASE AcademicYear2020";
-            const string DB_CREATE = "CREATE DATABASE AcademicYear2020";
+            const string DB_DROP = "IF DB_ID(N'AcademicYear2020_t7') IS NOT NULL DROP DATABASE AcademicYear2020_t7";
+            const string DB_CREATE = "CREATE DATABASE AcademicYear2020_t7";
 
             using (SqlConnection sqlConnection = new SqlConnection(string.Format(connectStringInit, "master")))
             {
@@ -32,10 +32,10 @@ namespace DBRecordingGrades
                 sqlCommand = new SqlCommand(DB_CREATE, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
             }
-            using (SqlConnection sqlConnection = new SqlConnection(string.Format(connectStringInit, "AcademicYear2020")))
+            using (SqlConnection sqlConnection = new SqlConnection(string.Format(connectStringInit, "AcademicYear2020_t7")))
             {
                 sqlConnection.Open();
-                string command = Regex.Replace(File.ReadAllText(@"../../../DBRecordingGrades/DB_Initialization.sql"), "USE AcademicYear2020", "")
+                string command = Regex.Replace(File.ReadAllText(@"../../../DBRecordingGrades/DB_Initialization.sql"), "USE AcademicYear2020_t7", "")
                     .Replace('\n', ' ').Replace('\r', ' ');
                 SqlCommand sqlCommand = new SqlCommand(command, sqlConnection);
                 sqlCommand.ExecuteNonQuery();

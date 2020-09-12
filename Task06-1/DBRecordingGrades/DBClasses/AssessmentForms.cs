@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,15 +10,18 @@ namespace DBRecordingGrades
     /// <summary>
     /// Assessmet Form Class;
     /// </summary>
+    [Table(Name = "AssessmentForms")]
     public class AssessmentForms
     {
         /// <summary>
         /// Assessment form Id.
         /// </summary>
+        [Column(Name = "AssessmentFormId", IsPrimaryKey = true, IsDbGenerated = true)]
         public int AssessmentFormId { get; set; }
         /// <summary>
         /// Assesment form Name.
         /// </summary>
+        [Column(Name = "AssessmentFormName")]
         public string AssessmentFormName { get; set; }
 
         /// <summary>

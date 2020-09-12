@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Linq.Mapping;s
 
 namespace DBRecordingGrades
 {
     /// <summary>
     /// Subject.
-    /// </summary>
+    /// </summary> 
+    [Table(Name = "Subjects")]
     public class Subjects
     {
         /// <summary>
         /// Subject id.
         /// </summary>
+        [Column(Name = "SubjectId", IsPrimaryKey = true, IsDbGenerated = true)]
         public int SubjectId { get; set; }
         /// <summary>
         /// Subject name.
         /// </summary>
+        [Column(Name = "SubjectName")]
         public string SubjectName { get; set; }
         /// <summary>
         /// Constructor subject.

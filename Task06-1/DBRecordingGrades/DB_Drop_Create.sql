@@ -1,9 +1,9 @@
 USE master
 GO
-IF DB_ID(N'AcademicYear2020') IS NOT NULL
-DROP DATABASE AcademicYear2020;
+IF DB_ID(N'AcademicYear2020_t7') IS NOT NULL
+DROP DATABASE AcademicYear2020_t7;
 GO
 
-CREATE DATABASE AcademicYear2020
+CREATE DATABASE AcademicYear2020_t7
 GO
 

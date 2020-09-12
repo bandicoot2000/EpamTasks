@@ -1,8 +1,9 @@
-USE AcademicYear2020
+USE AcademicYear2020_t7
 
 CREATE TABLE Groups(
 	GroupId INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	GroupName NVARCHAR(30) NOT NULL
+	GroupName NVARCHAR(30) NOT NULL,
+	Specialization NVARCHAR(30) NOT NULL
 )
 
 CREATE TABLE Students(
@@ -35,7 +36,8 @@ CREATE TABLE PassSubjects(
 	GroupId INT FOREIGN KEY REFERENCES Groups(GroupId) NOT NULL,
 	SessionTypeId INT FOREIGN KEY REFERENCES SessionTypes(SessionTypeId) NOT NULL, 
 	AssessmentFormId INT FOREIGN KEY REFERENCES AssessmentForms(AssessmentFormId) NOT NULL,
-	SubjectId INT FOREIGN KEY REFERENCES Subjects(SubjectId) NOT NULL
+	SubjectId INT FOREIGN KEY REFERENCES Subjects(SubjectId) NOT NULL,
+	Examinator NVARCHAR(60) NOT NULL
 )
 
 CREATE TABLE Grades(

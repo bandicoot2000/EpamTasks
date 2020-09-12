@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,26 +10,35 @@ namespace DBRecordingGrades
     /// <summary>
     /// Group
     /// </summary>
+    [Table(Name = "Groups")]
     public class Groups
     {
         /// <summary>
         /// Group id.
         /// </summary>
+        [Column(Name = "GroupId", IsPrimaryKey = true, IsDbGenerated = true)]
         public int GroupId { get; set; }
         /// <summary>
         /// Group name.
         /// </summary>
+        [Column(Name = "GroupName")]
         public string GroupName { get; set; }
-
+        /// <summary>
+        /// Specialization
+        /// </summary>
+        [Column(Name = "Specialization")]
+        public string Specialization { get; set; }
         /// <summary>
         /// Constructor group.
         /// </summary>
         /// <param name="groupId">Group id.</param>
         /// <param name="groupName">Group name.</param>
-        public Groups(int groupId, string groupName)
+        /// <param name="specialization">Group specialization.</param>
+        public Groups(int groupId, string groupName, string specialization)
         {
             GroupId = groupId;
             GroupName = groupName;
+            Specialization = specialization;
         }
         /// <summary>
         /// Override Equals.

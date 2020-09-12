@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,35 +10,43 @@ namespace DBRecordingGrades
     /// <summary>
     /// Student.
     /// </summary>
+    [Table(Name = "Students")]
     public class Students
     {
         /// <summary>
         /// Student id.
         /// </summary>
+        [Column(Name = "StudentId", IsPrimaryKey = true, IsDbGenerated = true)]
         public int StudentId { get; set; }
         /// <summary>
         /// Second name.
         /// </summary>
+        [Column(Name = "SecondName")]
         public string SecondName { get; set; }
         /// <summary>
         /// First name.
         /// </summary>
+        [Column(Name = "FirstName")]
         public string FirstName { get; set; }
         /// <summary>
         /// Middle Name.
         /// </summary>
+        [Column(Name = "MiddleName")]
         public string MiddleName { get; set; }
         /// <summary>
         /// Gender Name.
         /// </summary>
+        [Column(Name = "Gender")]
         public string Gender { get; set; }
         /// <summary>
         /// Birthday.
         /// </summary>
+        [Column(Name = "Birthday")]
         public DateTime Birthday { get; set; }
         /// <summary>
         /// Group id.
         /// </summary>
+        [Column(Name = "GroupId")]
         public int GroupId { get; set; }
         /// <summary>
         /// Constructor student.

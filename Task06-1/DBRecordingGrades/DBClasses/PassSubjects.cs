@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,28 +10,39 @@ namespace DBRecordingGrades
     /// <summary>
     /// Pass subject.
     /// </summary>
+    [Table(Name = "PassSubjects")]
     public class PassSubjects
     {
         /// <summary>
         /// Pass subject id.
         /// </summary>
+        [Column(Name = "PassSubjectId", IsPrimaryKey = true, IsDbGenerated = true)]
         public int PassSubjectId { get; set; }
         /// <summary>
         /// Group id.
         /// </summary>
+        [Column(Name = "GroupId")]
         public int GroupId { get; set; }
         /// <summary>
         /// Session type id.
         /// </summary>
+        [Column(Name = "SessionTypeId")]
         public int SessionTypeId { get; set; }
         /// <summary>
         /// Assesment form id.
         /// </summary>
+        [Column(Name = "AssessmentFormId")]
         public int AssessmentFormId { get; set; }
         /// <summary>
         /// Subject id.
         /// </summary>
+        [Column(Name = "SubjectId")]
         public int SubjectId { get; set; }
+        /// <summary>
+        /// Examinator.
+        /// </summary>
+        [Column(Name = "Examinator")]
+        public string Examinator { get; set; }
         /// <summary>
         /// Constructor pass subject.
         /// </summary>
@@ -39,13 +51,15 @@ namespace DBRecordingGrades
         /// <param name="sessionTypeId">Session type id.</param>
         /// <param name="assessmentFormId">Assesment form id.</param>
         /// <param name="subjectId">Subject id.</param>
-        public PassSubjects(int passSubjectId, int groupId, int sessionTypeId, int assessmentFormId, int subjectId)
+        /// <param name="examinator">Pass subject examinator.</param>
+        public PassSubjects(int passSubjectId, int groupId, int sessionTypeId, int assessmentFormId, int subjectId, string examinator)
         {
             PassSubjectId = passSubjectId;
             GroupId = groupId;
             SessionTypeId = sessionTypeId;
             AssessmentFormId = assessmentFormId;
             SubjectId = subjectId;
+            Examinator = examinator;
         }
         /// <summary>
         /// Override Equals.

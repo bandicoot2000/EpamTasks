@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,15 +10,18 @@ namespace DBRecordingGrades
     /// <summary>
     /// Session type.
     /// </summary>
+    [Table(Name = "SessionTypes")]
     public class SessionTypes
     {
         /// <summary>
         /// Sesion type id.
         /// </summary>
+        [Column(Name = "SessionTypeId", IsPrimaryKey = true, IsDbGenerated = true)]
         public int SessionTypeId { get; set; }
         /// <summary>
         /// Session type name.
         /// </summary>
+        [Column(Name = "SessionTypeName")]
         public string SessionTypeName { get; set; }
         /// <summary>
         /// Constructor session type.
