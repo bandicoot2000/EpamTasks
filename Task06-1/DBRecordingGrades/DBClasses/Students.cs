@@ -6,15 +6,49 @@ using System.Threading.Tasks;
 
 namespace DBRecordingGrades
 {
+    /// <summary>
+    /// Student.
+    /// </summary>
     public class Students
     {
+        /// <summary>
+        /// Student id.
+        /// </summary>
         public int StudentId { get; set; }
+        /// <summary>
+        /// Second name.
+        /// </summary>
         public string SecondName { get; set; }
+        /// <summary>
+        /// First name.
+        /// </summary>
         public string FirstName { get; set; }
+        /// <summary>
+        /// Middle Name.
+        /// </summary>
         public string MiddleName { get; set; }
+        /// <summary>
+        /// Gender Name.
+        /// </summary>
         public string Gender { get; set; }
+        /// <summary>
+        /// Birthday.
+        /// </summary>
         public DateTime Birthday { get; set; }
+        /// <summary>
+        /// Group id.
+        /// </summary>
         public int GroupId { get; set; }
+        /// <summary>
+        /// Constructor student.
+        /// </summary>
+        /// <param name="studentId">Student id.</param>
+        /// <param name="secondName">Second name.</param>
+        /// <param name="firstName">First name.</param>
+        /// <param name="middleName">Middle Name.</param>
+        /// <param name="gender">Gender Name.</param>
+        /// <param name="birthday">Birthday.</param>
+        /// <param name="groupId">Group id.</param>
         public Students(int studentId, string secondName, string firstName, string middleName, string gender, DateTime birthday, int groupId)
         {
             StudentId = studentId;
@@ -26,6 +60,11 @@ namespace DBRecordingGrades
             GroupId = groupId;
         }
 
+        /// <summary>
+        /// Override Equals.
+        /// </summary>
+        /// <param name="obj">Object.</param>
+        /// <returns>Result.</returns>
         public override bool Equals(object obj)
         {
             return obj is Students students &&
@@ -37,7 +76,10 @@ namespace DBRecordingGrades
                    Birthday == students.Birthday &&
                    GroupId == students.GroupId;
         }
-
+        /// <summary>
+        /// Override GetHashCde.
+        /// </summary>
+        /// <returns>Hash code.</returns>
         public override int GetHashCode()
         {
             int hashCode = 334590149;
@@ -50,7 +92,10 @@ namespace DBRecordingGrades
             hashCode = hashCode * -1521134295 + GroupId.GetHashCode();
             return hashCode;
         }
-
+        /// <summary>
+        /// Override ToString.
+        /// </summary>
+        /// <returns>String Object.</returns>
         public override string ToString()
         {
             return StudentId + " " + SecondName + " " + FirstName + " " + MiddleName + " " + Gender + " " + Birthday + " " + GroupId;

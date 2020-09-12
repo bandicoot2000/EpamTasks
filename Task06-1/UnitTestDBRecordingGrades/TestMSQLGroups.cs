@@ -10,14 +10,14 @@ namespace UnitTestDBRecordingGrades
         private const string CONNECTSTRING = @"Data Source=.\SQLEXPRESS;Initial Catalog = AcademicYear2020; Integrated Security = True";
 
         [TestMethod]
-        public void TestInsert()
+        public void Test1Insert()
         {
             MSQLGroups mSQLGroups = new MSQLGroups(CONNECTSTRING);
             Groups group = new Groups(1, "ITI");
             Assert.IsTrue(mSQLGroups.Insert(group));
         }
         [TestMethod]
-        public void TestUpdate()
+        public void Test2Update()
         {
             MSQLGroups mSQLGroups = new MSQLGroups(CONNECTSTRING);
             Groups oldGroup = new Groups(1, "ITI");
@@ -25,20 +25,19 @@ namespace UnitTestDBRecordingGrades
             Assert.IsTrue(mSQLGroups.Update(oldGroup, newGroup));
         }
         [TestMethod]
-        public void TestDelete()
+        public void Test4Delete()
         {
             MSQLGroups mSQLGroups = new MSQLGroups(CONNECTSTRING);
-            Groups group = new Groups(3, null);
+            Groups group = new Groups(1, null);
             Assert.IsTrue(mSQLGroups.Delete(group));
         }
         [TestMethod]
-        public void TestGetAllGroups()
+        public void Test3GetAllGroups()
         {
             MSQLGroups mSQLGroups = new MSQLGroups(CONNECTSTRING);
             Groups[] groups =
             {
-                new Groups(1, "ITP"),
-                new Groups(2, "ITI")
+                new Groups(1, "ITP")
             };
             CollectionAssert.AreEqual(groups, mSQLGroups.GetAllGroups());
         }

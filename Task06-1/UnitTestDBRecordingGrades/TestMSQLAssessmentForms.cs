@@ -10,14 +10,14 @@ namespace UnitTestDBRecordingGrades
         private const string CONNECTSTRING = @"Data Source=.\SQLEXPRESS;Initial Catalog = AcademicYear2020; Integrated Security = True";
 
         [TestMethod]
-        public void TestInsert()
+        public void Test1Insert()
         {
             MSQLAssessmentForms mSQLAssessmentForms = new MSQLAssessmentForms(CONNECTSTRING);
             AssessmentForms assessmentForm = new AssessmentForms(1, "Exem");
             Assert.IsTrue(mSQLAssessmentForms.Insert(assessmentForm));
         }
         [TestMethod]
-        public void TestUpdate()
+        public void Test2Update()
         {
             MSQLAssessmentForms mSQLAssessmentForms = new MSQLAssessmentForms(CONNECTSTRING);
             AssessmentForms oldAssessmentForm = new AssessmentForms(1, "Exem");
@@ -25,20 +25,19 @@ namespace UnitTestDBRecordingGrades
             Assert.IsTrue(mSQLAssessmentForms.Update(oldAssessmentForm, newAssessmentForm));
         }
         [TestMethod]
-        public void TestDelete()
+        public void Test4Delete()
         {
             MSQLAssessmentForms mSQLAssessmentForms = new MSQLAssessmentForms(CONNECTSTRING);
-            AssessmentForms assessmentForm = new AssessmentForms(3, null);
+            AssessmentForms assessmentForm = new AssessmentForms(1, null);
             Assert.IsTrue(mSQLAssessmentForms.Delete(assessmentForm));
         }
         [TestMethod]
-        public void TestGetAllAssesmentForms()
+        public void Test3GetAllAssesmentForms()
         {
             MSQLAssessmentForms mSQLAssessmentForms = new MSQLAssessmentForms(CONNECTSTRING);
             AssessmentForms[] assessmentForms =
             {
                 new AssessmentForms(1, "Test"),
-                new AssessmentForms(2, "Exem")
             };
             CollectionAssert.AreEqual(assessmentForms, mSQLAssessmentForms.GetAllAssessmentForms());
         }

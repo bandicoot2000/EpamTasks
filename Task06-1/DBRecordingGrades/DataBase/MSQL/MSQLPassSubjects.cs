@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DBRecordingGrades
 {
+    /// <summary>
+    /// MSQL pass subject connection.
+    /// </summary>
     public class MSQLPassSubjects : IPassSubjects
     {
         private const string DELETE_PASSSUBJECT
@@ -20,11 +23,19 @@ namespace DBRecordingGrades
 
 
         private string connectString;
+        /// <summary>
+        /// Constructor MSQLPassSubjects.
+        /// </summary>
+        /// <param name="connectString">Connection.</param>
         public MSQLPassSubjects(string connectString)
         {
             this.connectString = connectString;
         }
-
+        /// <summary>
+        /// Delete PassSubjects.
+        /// </summary>
+        /// <param name="passSubject">PassSubjects.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Delete(PassSubjects passSubject)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -35,7 +46,10 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Get All PassSubjects in DB.
+        /// </summary>
+        /// <returns>All PassSubjects.</returns>
         public PassSubjects[] GetAllPassSubjects()
         {
             List<PassSubjects> passSubjects = new List<PassSubjects>();
@@ -58,7 +72,11 @@ namespace DBRecordingGrades
             }
             return passSubjects.ToArray();
         }
-
+        /// <summary>
+        /// Insert PassSubjects.
+        /// </summary>
+        /// <param name="passSubject">PassSubjects.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Insert(PassSubjects passSubject)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -72,7 +90,12 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Update PassSubjects.
+        /// </summary>
+        /// <param name="oldPassSubject">Old PassSubjects.</param>
+        /// <param name="newPassSubject">New PassSubjects.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Update(PassSubjects oldPassSubject, PassSubjects newPassSubject)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))

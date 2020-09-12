@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DBRecordingGrades
 {
+    /// <summary>
+    /// MSQL grades connection.
+    /// </summary>
     public class MSQLGrades : IGrades
     {
         private const string DELETE_GRADE
@@ -19,10 +22,19 @@ namespace DBRecordingGrades
             = "UPDATE Grades SET PassSubjectId = @passSubjectId, StudentId = @studentId, Grade = @grade WHERE GradeId = @gradeId";
 
         private string connectString;
+        /// <summary>
+        /// Constuctor MSQLGrades.
+        /// </summary>
+        /// <param name="connectString">Connection.</param>
         public MSQLGrades(string connectString)
         {
             this.connectString = connectString;
         }
+        /// <summary>
+        /// Delete Grades.
+        /// </summary>
+        /// <param name="grade">Grades.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Delete(Grades grade)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -33,7 +45,10 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Get All Grades in DB.
+        /// </summary>
+        /// <returns>All Grades.</returns>
         public Grades[] GetAllGrades()
         {
             List<Grades> grades = new List<Grades>();
@@ -55,7 +70,11 @@ namespace DBRecordingGrades
             }
             return grades.ToArray();
         }
-
+        /// <summary>
+        /// Insert Grades.
+        /// </summary>
+        /// <param name="grade">Grades</param>
+        /// <returns>Successful completion method.</returns
         public bool Insert(Grades grade)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -68,7 +87,12 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Update Grades.
+        /// </summary>
+        /// <param name="oldGrade">Old Grades.</param>
+        /// <param name="newGrade">New Grades.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Update(Grades oldGrade, Grades newGrade)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))

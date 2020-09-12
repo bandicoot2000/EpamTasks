@@ -6,23 +6,45 @@ using System.Threading.Tasks;
 
 namespace DBRecordingGrades
 {
+    /// <summary>
+    /// Subject.
+    /// </summary>
     public class Subjects
     {
+        /// <summary>
+        /// Subject id.
+        /// </summary>
         public int SubjectId { get; set; }
+        /// <summary>
+        /// Subject name.
+        /// </summary>
         public string SubjectName { get; set; }
+        /// <summary>
+        /// Constructor subject.
+        /// </summary>
+        /// <param name="subjectId">Subject id.</param>
+        /// <param name="subjectName">Subject name.</param>
         public Subjects(int subjectId, string subjectName)
         {
             SubjectId = subjectId;
             SubjectName = subjectName;
         }
 
+        /// <summary>
+        /// Override Equals.
+        /// </summary>
+        /// <param name="obj">Object.</param>
+        /// <returns>Result.</returns>
         public override bool Equals(object obj)
         {
             return obj is Subjects subjects &&
                    SubjectId == subjects.SubjectId &&
                    SubjectName == subjects.SubjectName;
         }
-
+        /// <summary>
+        /// Override GetHashCde.
+        /// </summary>
+        /// <returns>Hash code.</returns>
         public override int GetHashCode()
         {
             int hashCode = -830864098;
@@ -30,7 +52,10 @@ namespace DBRecordingGrades
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(SubjectName);
             return hashCode;
         }
-
+        /// <summary>
+        /// Override ToString.
+        /// </summary>
+        /// <returns>String Object.</returns>
         public override string ToString()
         {
             return SubjectId + " " + SubjectName;

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DBRecordingGrades
 {
+    /// <summary>
+    /// DB type.
+    /// </summary>
     public enum DataBaseType
     {
         /// <summary>

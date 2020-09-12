@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DBRecordingGrades
 {
+    /// <summary>
+    /// MSQL session types connection.
+    /// </summary>
     public class MSQLSessionTypes : ISessionTypes
     {
         private const string DELETE_SESSIONTYPE
@@ -19,11 +22,19 @@ namespace DBRecordingGrades
             = "UPDATE SessionTypes SET SessionTypeName = @sessionTypeName WHERE SessionTypeId = @sessionTypeId";
 
         private string connectString;
+        /// <summary>
+        /// Constructor MSQLSessionTypes.
+        /// </summary>
+        /// <param name="connectString">Connection.</param>
         public MSQLSessionTypes(string connectString)
         {
             this.connectString = connectString;
         }
-
+        /// <summary>
+        /// Delete SessionTypes.
+        /// </summary>
+        /// <param name="sessionType">SessionTypes.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Delete(SessionTypes sessionType)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -34,7 +45,10 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Get All SessionTypes in DB.
+        /// </summary>
+        /// <returns>All SessionTypes.</returns>
         public SessionTypes[] GetAllSessionTypes()
         {
             List<SessionTypes> sessionTypes = new List<SessionTypes>();
@@ -54,7 +68,11 @@ namespace DBRecordingGrades
             }
             return sessionTypes.ToArray();
         }
-
+        /// <summary>
+        /// Delete SessionTypes.
+        /// </summary>
+        /// <param name="sessionType">SessionTypes.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Insert(SessionTypes sessionType)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -65,7 +83,12 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Update SessionTypes.
+        /// </summary>
+        /// <param name="oldSessionType">Old SessionTypes.</param>
+        /// <param name="newSessionType">New SessionTypes.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Update(SessionTypes oldSessionType, SessionTypes newSessionType)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))

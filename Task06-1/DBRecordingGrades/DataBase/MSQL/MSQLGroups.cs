@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DBRecordingGrades
 {
+    /// <summary>
+    /// MSQL groups connection.
+    /// </summary>
     public class MSQLGroups : IGroups
     {
         private const string DELETE_GROUP
@@ -19,11 +22,19 @@ namespace DBRecordingGrades
             = "UPDATE Groups SET GroupName = @groupName WHERE GroupId = @groupId";
 
         private string connectString;
+        /// <summary>
+        /// Constructor MSQLGroups.
+        /// </summary>
+        /// <param name="connectString">Connection.</param>
         public MSQLGroups(string connectString)
         {
             this.connectString = connectString;
         }
-
+        /// <summary>
+        /// Delete Groups.
+        /// </summary>
+        /// <param name="group">Groups.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Delete(Groups group)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -34,7 +45,10 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Gat All Groups in DB.
+        /// </summary>
+        /// <returns>All Groups.</returns>
         public Groups[] GetAllGroups()
         {
             List<Groups> groups = new List<Groups>();
@@ -54,7 +68,11 @@ namespace DBRecordingGrades
             }
             return groups.ToArray();
         }
-
+        /// <summary>
+        /// Insert Groups.
+        /// </summary>
+        /// <param name="group">Groups.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Insert(Groups group)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -65,7 +83,12 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Update Groups.
+        /// </summary>
+        /// <param name="oldGroup">Old Groups</param>
+        /// <param name="newGroup">New Groups</param>
+        /// <returns>Successful completion method.</returns>
         public bool Update(Groups oldGroup, Groups newGroup)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))

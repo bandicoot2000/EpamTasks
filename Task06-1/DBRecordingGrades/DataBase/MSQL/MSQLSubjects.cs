@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DBRecordingGrades
 {
+    /// <summary>
+    /// MSQL subjects connection.
+    /// </summary>
     public class MSQLSubject : ISubjects
     {
         private const string DELETE_SUBJECT
@@ -19,11 +22,19 @@ namespace DBRecordingGrades
             = "UPDATE Subjects SET SubjectName = @subjectName WHERE SubjectId = @subjectId";
 
         private string connectString;
+        /// <summary>
+        /// Constructor MSQLSubject.
+        /// </summary>
+        /// <param name="connectString">Connection.</param>
         public MSQLSubject(string connectString)
         {
             this.connectString = connectString;
         }
-
+        /// <summary>
+        /// Delete Subjects.
+        /// </summary>
+        /// <param name="subject">Subjects.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Delete(Subjects subject)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -34,7 +45,10 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Get All Subjects in DB.
+        /// </summary>
+        /// <returns>All Subjects.</returns>
         public Subjects[] GetAllSubjects()
         {
             List<Subjects> subjects = new List<Subjects>();
@@ -54,7 +68,11 @@ namespace DBRecordingGrades
             }
             return subjects.ToArray();
         }
-
+        /// <summary>
+        /// Insert Subjects.
+        /// </summary>
+        /// <param name="subject">Subjects.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Insert(Subjects subject)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -65,7 +83,12 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Update Subjects.
+        /// </summary>
+        /// <param name="oldSubject">Old Subjects.</param>
+        /// <param name="newSubject">New Subjects.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Update(Subjects oldSubject, Subjects newSubject)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))

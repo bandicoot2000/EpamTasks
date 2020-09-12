@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DBRecordingGrades
 {
+    /// <summary>
+    /// MSQL assesment form connection.
+    /// </summary>
     public class MSQLAssessmentForms : IAssessmentForms
     {
         private const string DELETE_ASSESSMENTFORM
@@ -19,11 +22,19 @@ namespace DBRecordingGrades
             = "UPDATE AssessmentForms SET AssessmentFormName = @assessmentFormName WHERE AssessmentFormId = @assessmentFormId";
 
         private string connectString;
+        /// <summary>
+        /// Constructor MSQLAssessmentForms.
+        /// </summary>
+        /// <param name="connectString">Connection.</param>
         public MSQLAssessmentForms(string connectString)
         {
             this.connectString = connectString;
         }
-
+        /// <summary>
+        /// Delete AssessmentForms.
+        /// </summary>
+        /// <param name="assessmentForm">AssessmentForms.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Delete(AssessmentForms assessmentForm)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -34,7 +45,10 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Get all AssessmentForms in DB.
+        /// </summary>
+        /// <returns>All AssessmentForms.</returns>
         public AssessmentForms[] GetAllAssessmentForms()
         {
             List<AssessmentForms> assessmentForms = new List<AssessmentForms>();
@@ -54,7 +68,11 @@ namespace DBRecordingGrades
             }
             return assessmentForms.ToArray();
         }
-
+        /// <summary>
+        /// Insert AssessmentForms.
+        /// </summary>
+        /// <param name="assessmentForm">AssessmentForms.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Insert(AssessmentForms assessmentForm)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -65,7 +83,12 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Update AssessmentForms.
+        /// </summary>
+        /// <param name="oldAssessmentForm">Old AssessmentForms.</param>
+        /// <param name="newAssessmentForm">New AssessmentForms.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Update(AssessmentForms oldAssessmentForm, AssessmentForms newAssessmentForm)
         {
             using(SqlConnection sqlConnection = new SqlConnection(connectString))

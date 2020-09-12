@@ -1,0 +1,9 @@
+USE master
+GO
+IF DB_ID(N'AcademicYear2020') IS NOT NULL
+DROP DATABASE AcademicYear2020;
+GO
+
+CREATE DATABASE AcademicYear2020
+GO
+

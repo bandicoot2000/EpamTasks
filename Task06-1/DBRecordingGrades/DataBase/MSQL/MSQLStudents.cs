@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DBRecordingGrades
 {
+    /// <summary>
+    /// MSQL students connection.
+    /// </summary>
     public class MSQLStudents : IStudents
     {
         private const string DELETE_STUDENT
@@ -19,11 +22,20 @@ namespace DBRecordingGrades
             = "UPDATE Students SET SecondName = @secondName, FirstName = @firstName, MiddleName = @middleName, Gender = @gender, Birthday = @birthday, GroupId = @groupId WHERE StudentId = @studentId";
         
         private string connectString;
+
+        /// <summary>
+        /// Constructor MSQLStudents.
+        /// </summary>
+        /// <param name="connectString">Connection.</param>
         public MSQLStudents(string connectString)
         {
             this.connectString = connectString;
         }
-
+        /// <summary>
+        /// Delete Students.
+        /// </summary>
+        /// <param name="student">Students.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Delete(Students student)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -34,7 +46,10 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Get All Students in DB.
+        /// </summary>
+        /// <returns>All Students.</returns>
         public Students[] GetAllStudents()
         {
             List<Students> assessmentForms = new List<Students>();
@@ -59,7 +74,11 @@ namespace DBRecordingGrades
             }
             return assessmentForms.ToArray();
         }
-
+        /// <summary>
+        /// Insert Students.
+        /// </summary>
+        /// <param name="student">Students.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Insert(Students student)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
@@ -75,7 +94,12 @@ namespace DBRecordingGrades
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
         }
-
+        /// <summary>
+        /// Update Students.
+        /// </summary>
+        /// <param name="oldStudent">Old Students.</param>
+        /// <param name="newStudent">New Students.</param>
+        /// <returns>Successful completion method.</returns>
         public bool Update(Students oldStudent, Students newStudent)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectString))
