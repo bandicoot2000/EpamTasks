@@ -51,6 +51,10 @@ namespace DBRecordingGrades
         /// <summary>
         /// Constructor student.
         /// </summary>
+        public Students() { }
+        /// <summary>
+        /// Constructor student.
+        /// </summary>
         /// <param name="studentId">Student id.</param>
         /// <param name="secondName">Second name.</param>
         /// <param name="firstName">First name.</param>

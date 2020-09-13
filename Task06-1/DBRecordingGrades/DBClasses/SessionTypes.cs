@@ -23,12 +23,16 @@ namespace DBRecordingGrades
         /// </summary>
         [Column(Name = "SessionTypeName")]
         public string SessionTypeName { get; set; }
+
+        /// <summary>
+        /// Constructor session type.
+        /// </summary>
+        public SessionTypes() { }
         /// <summary>
         /// Constructor session type.
         /// </summary>
         /// <param name="sessionTypeId">Sesion type id.</param>
         /// <param name="sessionTypeName">Session type name.</param>
-
         public SessionTypes(int sessionTypeId, string sessionTypeName)
         {
             SessionTypeId = sessionTypeId;

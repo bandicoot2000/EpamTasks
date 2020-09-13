@@ -16,18 +16,24 @@ namespace DBRecordingGrades
         /// <summary>
         /// Group id.
         /// </summary>
-        [Column(Name = "GroupId", IsPrimaryKey = true, IsDbGenerated = true)]
+        [Column(Name = "GroupId", IsPrimaryKey = true, IsDbGenerated = true, CanBeNull = false)]
         public int GroupId { get; set; }
         /// <summary>
         /// Group name.
         /// </summary>
-        [Column(Name = "GroupName")]
+        [Column(Name = "GroupName", CanBeNull = false)]
         public string GroupName { get; set; }
         /// <summary>
         /// Specialization
         /// </summary>
-        [Column(Name = "Specialization")]
+        [Column(Name = "Specialization", CanBeNull = false)]
         public string Specialization { get; set; }
+
+        /// <summary>
+        /// Constructor group.
+        /// </summary>
+        public Groups() { }
+
         /// <summary>
         /// Constructor group.
         /// </summary>

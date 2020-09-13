@@ -8,7 +8,7 @@ namespace UnitTestDBRecordingGrades
     public class TestDataBaseManager
     {
         private const string CONNECTSTRING_INIT = @"Data Source=.\SQLEXPRESS;Initial Catalog = {0}; Integrated Security = True";
-        private const string CONNECTSTRING = @"Data Source=.\SQLEXPRESS;Initial Catalog = AcademicYear2020; Integrated Security = True";
+        private const string CONNECTSTRING = @"Data Source=.\SQLEXPRESS;Initial Catalog = AcademicYear2020_t7; Integrated Security = True";
         [TestMethod]
         public void TestInitialize()
         {

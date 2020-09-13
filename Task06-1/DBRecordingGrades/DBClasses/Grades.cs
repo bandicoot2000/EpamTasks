@@ -33,6 +33,11 @@ namespace DBRecordingGrades
         /// </summary>
         [Column(Name = "Grade")]
         public int Grade { get; set; }
+
+        /// <summary>
+        /// Constructor grade.
+        /// </summary>
+        public Grades() { }
         /// <summary>
         /// Constructor grade.
         /// </summary>

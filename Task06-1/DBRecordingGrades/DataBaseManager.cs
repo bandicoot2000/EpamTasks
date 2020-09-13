@@ -116,12 +116,12 @@ namespace DBRecordingGrades
             #region Groups
             Groups[] groups = new Groups[GROUPS_COUNT]
             {
-                new Groups(1, "ITI - 11"),
-                new Groups(2, "ITP - 11"),
-                new Groups(3, "ITI - 21"),
-                new Groups(4, "ITP - 21"),
-                new Groups(5, "ITI - 31"),
-                new Groups(6, "ITP - 31")
+                new Groups(1, "ITI - 11", "Game industry"),
+                new Groups(2, "ITP - 11", "Industrial Industry"),
+                new Groups(3, "ITI - 21", "Game industry"),
+                new Groups(4, "ITP - 21", "Industrial Industry"),
+                new Groups(5, "ITI - 31", "Game industry"),
+                new Groups(6, "ITP - 31", "Industrial Industry")
             };
 
             IGroups group = connection.GetGroups();
@@ -179,6 +179,7 @@ namespace DBRecordingGrades
                 "F"
             };
 
+
             IStudents students = connection.GetStudents();
 
             for (int i = 0; i < STUDENTS_COUNT; i++)
@@ -194,16 +195,28 @@ namespace DBRecordingGrades
             #endregion
 
             #region PassSubjects
-
+            string[] examinators = new string[SUBJECTS_COUNT]
+            {
+                "Viscki Grigorvixh Pushnou",
+                "Syslic Dmitriy Pavlovich",
+                "Miranda Anastasiy Alecsandracna",
+                "Alecksey Filly Victorovich",
+                "Minirya Voviy Dorick",
+                "Fillych Divo Lol",
+                "Monster Programer Bos",
+                "Super Prepod Mos"
+            };
             IPassSubjects passSubjects = connection.GetPassSubjects();
 
             for (int i = 0; i < PASSSUBJECTS_COUNT; i++)
             {
+                int subjectId = random.Next(SUBJECTS_COUNT) + 1;
                 passSubjects.Insert(new PassSubjects(0,
                         random.Next(GROUPS_COUNT) + 1,
                         random.Next(SESSIONTYPES_COUNT) + 1,
                         random.Next(ASSESSMENTFORMS_COUNT) + 1,
-                        random.Next(SUBJECTS_COUNT) + 1));
+                        subjectId,
+                        examinators[subjectId]));
             }
             #endregion
 

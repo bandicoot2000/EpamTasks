@@ -46,6 +46,10 @@ namespace DBRecordingGrades
         /// <summary>
         /// Constructor pass subject.
         /// </summary>
+        public PassSubjects() { }
+        /// <summary>
+        /// Constructor pass subject.
+        /// </summary>
         /// <param name="passSubjectId">Pass subject id.</param>
         /// <param name="groupId">Group id.</param>
         /// <param name="sessionTypeId">Session type id.</param>

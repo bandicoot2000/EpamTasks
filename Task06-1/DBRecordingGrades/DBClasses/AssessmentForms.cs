@@ -27,6 +27,10 @@ namespace DBRecordingGrades
         /// <summary>
         /// Constructor assessment form.
         /// </summary>
+        public AssessmentForms() { }
+        /// <summary>
+        /// Constructor assessment form.
+        /// </summary>
         /// <param name="assessmentFormId">Assessment form Id.</param>
         /// <param name="assessmentFormName">Assesment form Name.</param>
         public AssessmentForms(int assessmentFormId, string assessmentFormName)

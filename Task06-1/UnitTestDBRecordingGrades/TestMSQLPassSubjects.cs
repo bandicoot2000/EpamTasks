@@ -9,7 +9,7 @@ namespace UnitTestDBRecordingGrades
     {
         private const string CONNECTSTRING = @"Data Source=.\SQLEXPRESS;Initial Catalog = AcademicYear2020; Integrated Security = True";
 
-        [TestMethod]
+        /*[TestMethod]
         public void Test1Insert()
         {
             MSQLPassSubjects mSQLPassSubjects = new MSQLPassSubjects(CONNECTSTRING);
@@ -40,6 +40,6 @@ namespace UnitTestDBRecordingGrades
                 new PassSubjects(1, 1, 1, 1, 1)
             };
             CollectionAssert.AreEqual(passSubjects, mSQLPassSubjects.GetAllPassSubjects());
-        }
+        }*/
     }
 }

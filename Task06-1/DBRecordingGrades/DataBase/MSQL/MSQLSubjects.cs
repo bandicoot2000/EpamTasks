@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -12,23 +13,14 @@ namespace DBRecordingGrades
     /// </summary>
     public class MSQLSubject : ISubjects
     {
-        private const string DELETE_SUBJECT
-            = "DELETE FROM Subjects WHERE SubjectId = @subjectId";
-        private const string GET_ALL_SUBJECTS
-            = "SELECT * FROM Subjects";
-        private const string INSERT_SUBJECT
-            = "INSERT INTO Subjects(SubjectName) VALUES (@subjectName)";
-        private const string UPDATE_SUBJECT
-            = "UPDATE Subjects SET SubjectName = @subjectName WHERE SubjectId = @subjectId";
-
-        private string connectString;
+        private DataContext dataContext;
         /// <summary>
         /// Constructor MSQLSubject.
         /// </summary>
         /// <param name="connectString">Connection.</param>
         public MSQLSubject(string connectString)
         {
-            this.connectString = connectString;
+            dataContext = new DataContext(connectString);
         }
         /// <summary>
         /// Delete Subjects.
@@ -37,13 +29,9 @@ namespace DBRecordingGrades
         /// <returns>Successful completion method.</returns>
         public bool Delete(Subjects subject)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connectString))
-            {
-                sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand(DELETE_SUBJECT, sqlConnection);
-                sqlCommand.Parameters.Add(new SqlParameter("@subjectId", subject.SubjectId));
-                return sqlCommand.ExecuteNonQuery() > 0;
-            }
+            dataContext.GetTable<Subjects>().DeleteOnSubmit(dataContext.GetTable<Subjects>().Where(subjects => subjects.SubjectId == subject.SubjectId).First());
+            dataContext.SubmitChanges();
+            return true;
         }
         /// <summary>
         /// Get All Subjects in DB.
@@ -51,22 +39,7 @@ namespace DBRecordingGrades
         /// <returns>All Subjects.</returns>
         public Subjects[] GetAllSubjects()
         {
-            List<Subjects> subjects = new List<Subjects>();
-            using (SqlConnection sqlConnection = new SqlConnection(connectString))
-            {
-                sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand(GET_ALL_SUBJECTS, sqlConnection);
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-                if (sqlDataReader.HasRows)
-                    while (sqlDataReader.Read())
-                    {
-                        subjects.Add(new Subjects(
-                        sqlDataReader.GetInt32(0),
-                        sqlDataReader.GetString(1)
-                        ));
-                    }
-            }
-            return subjects.ToArray();
+            return dataContext.GetTable<Subjects>().ToArray();
         }
         /// <summary>
         /// Insert Subjects.
@@ -75,13 +48,9 @@ namespace DBRecordingGrades
         /// <returns>Successful completion method.</returns>
         public bool Insert(Subjects subject)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connectString))
-            {
-                sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand(INSERT_SUBJECT, sqlConnection);
-                sqlCommand.Parameters.Add(new SqlParameter("@subjectName", subject.SubjectName));
-                return sqlCommand.ExecuteNonQuery() > 0;
-            }
+            dataContext.GetTable<Subjects>().InsertOnSubmit(subject);
+            dataContext.SubmitChanges();
+            return true;
         }
         /// <summary>
         /// Update Subjects.
@@ -91,14 +60,13 @@ namespace DBRecordingGrades
         /// <returns>Successful completion method.</returns>
         public bool Update(Subjects oldSubject, Subjects newSubject)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connectString))
-            {
-                sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand(UPDATE_SUBJECT, sqlConnection);
-                sqlCommand.Parameters.Add(new SqlParameter("@subjectId", oldSubject.SubjectId));
-                sqlCommand.Parameters.Add(new SqlParameter("@subjectName", newSubject.SubjectName));
-                return sqlCommand.ExecuteNonQuery() > 0;
-            }
+            var query = from subject in dataContext.GetTable<Subjects>()
+                        where subject.SubjectId == oldSubject.SubjectId
+                        select subject;
+            Subjects updateSubjects = query.First();
+            updateSubjects.SubjectName = newSubject.SubjectName;
+            dataContext.SubmitChanges();
+            return true;
         }
     }
 }
