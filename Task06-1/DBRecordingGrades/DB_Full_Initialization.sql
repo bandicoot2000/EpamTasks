@@ -58,20 +58,20 @@ CREATE TABLE Grades(
 
 GO
 
-INSERT INTO Groups(GroupName) VALUES ('ITI'), ('ITP');
+INSERT INTO Groups(GroupName, Specialization) VALUES ('ITI', 'Game indastry'), ('ITP', 'Indastrial');
 INSERT INTO Subjects(SubjectName) VALUES ('Math'), ('Chimiy'), ('PE');
 INSERT INTO SessionTypes(SessionTypeName) VALUES ('Winter'), ('Summer');
 INSERT INTO AssessmentForms(AssessmentFormName) VALUES ('Exem'), ('Test');
 GO
-INSERT INTO PassSubjects(GroupId, SessionTypeId, AssessmentFormId, SubjectId) 
-VALUES (1, 1, 1, 1),
-	(1, 1, 2, 3),
-	(1, 2, 1, 2),
-	(1, 2, 2, 3),
-	(2, 1, 2, 2),
-	(2, 1, 1, 3),
-	(2, 2, 1, 1),
-	(2, 2, 2, 2);
+INSERT INTO PassSubjects(GroupId, SessionTypeId, AssessmentFormId, SubjectId, Examinator) 
+VALUES (1, 1, 1, 1, 'Syslic Dmitriy Pavlovich'),
+	(1, 1, 2, 3, 'Viscki Grigorvixh Pushnou'),
+	(1, 2, 1, 2, 'Alecksey Filly Victorovich'),
+	(1, 2, 2, 3, 'Minirya Voviy Dorick'),
+	(2, 1, 2, 2, 'Fillych Divo Lol'),
+	(2, 1, 1, 3, 'Miranda Anastasiy Alecsandracna'),
+	(2, 2, 1, 1, 'Monster Programer Bos'),
+	(2, 2, 2, 2, 'Super Prepod Mos');
 INSERT INTO Students(SecondName, FirstName, MiddleName, Gender, Birthday, GroupId) 
 VALUES ('Akylich', 'Artem', 'Pavlovich', 'M', '2000-07-21', 1),
 	('Akylich', 'Yra', 'Pavlovich', 'M', '2001-07-21', 2),

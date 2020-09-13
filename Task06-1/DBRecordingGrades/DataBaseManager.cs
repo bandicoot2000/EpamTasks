@@ -195,7 +195,7 @@ namespace DBRecordingGrades
             #endregion
 
             #region PassSubjects
-            string[] examinators = new string[SUBJECTS_COUNT]
+            string[] examinators = new string[]
             {
                 "Viscki Grigorvixh Pushnou",
                 "Syslic Dmitriy Pavlovich",
@@ -215,8 +215,8 @@ namespace DBRecordingGrades
                         random.Next(GROUPS_COUNT) + 1,
                         random.Next(SESSIONTYPES_COUNT) + 1,
                         random.Next(ASSESSMENTFORMS_COUNT) + 1,
-                        subjectId,
-                        examinators[subjectId]));
+                        random.Next(SUBJECTS_COUNT) + 1,
+                        examinators[random.Next(examinators.Length)]));
             }
             #endregion
 
