@@ -7,7 +7,7 @@ namespace UnitTestDBRecordingGrades
     [TestClass]
     public class TestMSQLStudents
     {
-        private const string CONNECTSTRING = @"Data Source=.\SQLEXPRESS;Initial Catalog = AcademicYear2020; Integrated Security = True";
+        private const string CONNECTSTRING = @"Data Source=.\SQLEXPRESS;Initial Catalog = AcademicYear2020_t7; Integrated Security = True";
 
         [TestMethod]
         public void Test1Insert()

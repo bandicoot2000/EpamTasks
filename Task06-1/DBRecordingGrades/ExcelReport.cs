@@ -365,5 +365,119 @@ namespace DBRecordingGrades
             }
             throw new Exception("Index not found!");
         }
+
+        /// <summary>
+        /// Specialization average score.
+        /// </summary>
+        /// <param name="connection">Connection.</param>
+        /// <returns>Successful completion method.</returns>
+        public static bool GetSpecializationTable(string connection)
+        {
+            InitializeDB(connection);
+            InitializeExcel(sessionTypes.Length);
+
+            IEnumerable<IGrouping<string, Groups>> groups = ExcelReport.groups.GroupBy(group => group.Specialization);
+
+            for (int i = 0; i < sessionTypes.Length; i++)
+            {
+                worksheet = (Worksheet)excel.Worksheets.get_Item(i + 1);
+                worksheet.Name = sessionTypes[i].SessionTypeName;
+
+                worksheet.Cells[1, 1] = "Specialization";
+                worksheet.Cells[1, 2] = "Average";
+
+                for (int j = 0; j < groups.Count(); j++)
+                {
+                    worksheet.Cells[j + 2, 1] = groups.ElementAt(j).Key;
+
+                    float averageSpecialization = 0;
+                    int groupCount = 0;
+
+                    IEnumerator<Groups> groupEnumerator = groups.ElementAt(j).GetEnumerator();
+
+                    while(groupEnumerator.MoveNext())
+                    {
+                        averageSpecialization += AverageGroupScore(groupEnumerator.Current.GroupId, sessionTypes[i].SessionTypeId);
+                        groupCount++;
+                    }
+
+                    worksheet.Cells[j + 2, 2] = averageSpecialization / groupCount;
+                }
+            }
+
+            excel.Application.ActiveWorkbook.SaveAs(Directory.GetCurrentDirectory() + "\\SpecializationTable.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+
+            DisposeDB();
+            DisposeExcel();
+
+            return true;
+        }
+
+        /// <summary>
+        /// Examinator average score.
+        /// </summary>
+        /// <param name="connection">Connection.</param>
+        /// <returns>Successful completion method.</returns>
+        public static bool GetExaminatorTable(string connection)
+        {
+            InitializeDB(connection);
+            InitializeExcel(sessionTypes.Length);
+
+            IEnumerable<IGrouping<string, PassSubjects>> examinators = passSubjects.GroupBy(passSubject => passSubject.Examinator);
+
+            for (int i = 0; i < sessionTypes.Length; i++)
+            {
+                worksheet = (Worksheet)excel.Worksheets.get_Item(i + 1);
+                worksheet.Name = sessionTypes[i].SessionTypeName;
+
+                worksheet.Cells[1, 1] = "Examinator";
+                worksheet.Cells[1, 2] = "Average";
+
+                for (int j = 0; j < examinators.Count(); j++)
+                {
+                    worksheet.Cells[j + 2, 1] = examinators.ElementAt(j).Key;
+
+                    float averageExaminator = 0;
+                    int examCount = 0;
+
+                    IEnumerator<PassSubjects> examEnumerator = examinators.ElementAt(j).GetEnumerator();
+
+                    while (examEnumerator.MoveNext())
+                    {
+                        averageExaminator += AveragePassSubjectScore(examEnumerator.Current.GroupId, sessionTypes[i].SessionTypeId);
+                        examCount++;
+                    }
+
+                    worksheet.Cells[j + 2, 2] = averageExaminator / examCount;
+                }
+            }
+
+            excel.Application.ActiveWorkbook.SaveAs(Directory.GetCurrentDirectory() + "\\ExaminatorTable.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+
+            DisposeDB();
+            DisposeExcel();
+
+            return true;
+        }
+
+        private static float AveragePassSubjectScore(int indexPassSubject, int indexSession)
+        {
+            float sum = 0;
+            int count = 0;
+            foreach (Grades grade in grades)
+            {
+                if (grade.PassSubjectId == indexPassSubject && GetPassSubjects(grade.PassSubjectId).SessionTypeId == indexSession)
+                {
+                    sum += grade.Grade;
+                    count++;
+                }
+            }
+            if (count > 0) return sum / count;
+            return 0;
+        }
     }
 }

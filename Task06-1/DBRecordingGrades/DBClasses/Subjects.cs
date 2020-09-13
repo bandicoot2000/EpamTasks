@@ -26,6 +26,10 @@ namespace DBRecordingGrades
         /// <summary>
         /// Constructor subject.
         /// </summary>
+        public Subjects() { }
+        /// <summary>
+        /// Constructor subject.
+        /// </summary>
         /// <param name="subjectId">Subject id.</param>
         /// <param name="subjectName">Subject name.</param>
         public Subjects(int subjectId, string subjectName)

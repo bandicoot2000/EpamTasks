@@ -7,7 +7,7 @@ namespace UnitTestDBRecordingGrades
     [TestClass]
     public class TestExcelReport
     {
-        private const string CONNECTSTRING = @"Data Source=.\SQLEXPRESS;Initial Catalog = AcademicYear2020; Integrated Security = True";
+        private const string CONNECTSTRING = @"Data Source=.\SQLEXPRESS;Initial Catalog = AcademicYear2020_t7; Integrated Security = True";
 
         [TestMethod]
         public void TestSessionReport()
@@ -16,9 +16,21 @@ namespace UnitTestDBRecordingGrades
         }
 
         [TestMethod]
-        public void GetSummaryTable()
+        public void TestGetSummaryTable()
         {
             Assert.IsTrue(ExcelReport.GetSummaryTable(CONNECTSTRING));
+        }
+
+        [TestMethod]
+        public void TestGetSpecializationTable()
+        {
+            Assert.IsTrue(ExcelReport.GetSpecializationTable(CONNECTSTRING));
+        }
+
+        [TestMethod]
+        public void TestGetExaminatorTable()
+        {
+            Assert.IsTrue(ExcelReport.GetExaminatorTable(CONNECTSTRING));
         }
     }
 }
